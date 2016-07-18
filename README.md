@@ -1,9 +1,6 @@
 # UnsplashKit
 
-[![CI Status](http://img.shields.io/travis/Pedro Piñera Buendía/UnsplashKit.svg?style=flat)](https://travis-ci.org/Pedro Piñera Buendía/UnsplashKit)
-[![Version](https://img.shields.io/cocoapods/v/UnsplashKit.svg?style=flat)](http://cocoapods.org/pods/UnsplashKit)
-[![License](https://img.shields.io/cocoapods/l/UnsplashKit.svg?style=flat)](http://cocoapods.org/pods/UnsplashKit)
-[![Platform](https://img.shields.io/cocoapods/p/UnsplashKit.svg?style=flat)](http://cocoapods.org/pods/UnsplashKit)
+[![CI Status](http://img.shields.io/travis/tulapps/UnsplashKit.svg?style=flat)](https://travis-ci.org/tulapps/UnsplashKit)
 
 ## Example
 
@@ -13,8 +10,13 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-UnsplashKit is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+Core podspec is part of the [Specs]() repository. In order to be recognized by CocoaPods you have to add that repository to your CocoaPods setup:
+
+```
+pod repo add tulapps https://github.com/tulapps/Specs
+```
+
+To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "UnsplashKit"
@@ -22,7 +24,7 @@ pod "UnsplashKit"
 
 ## Author
 
-Pedro Piñera Buendía, pepibumur@gmail.com
+- Pedro Piñera Buendía, pepibumur@gmail.com
 
 ## License
 
