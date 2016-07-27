@@ -24,7 +24,9 @@ pod "UnsplashKit"
 
 ## Author
 
-- Pedro Piñera Buendía, pepibumur@gmail.com
+- Pedro Piñera, pepibumur@gmail.com
+- Sergi Gracia, sergigram@gmail.com
+- Isaac Roldán, isaac.roldan@gmail.com
 
 ## License
 

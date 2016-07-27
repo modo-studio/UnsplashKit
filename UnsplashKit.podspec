@@ -5,7 +5,6 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 Swift client for unsplash.com API
                        DESC
-
   s.homepage         = 'https://github.com/tulapps/UnsplashKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Pedro Piñera Buendía' => 'pepibumur@gmail.com', 'Sergi Gracia' => 'sergigram@gmail.com', 'Isaal Roldán' => "isaac.roldan@gmail.com" }
@@ -13,11 +12,11 @@ Swift client for unsplash.com API
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'UnsplashKit' => ['UnsplashKit/Assets/*.png']
-  # }
+  s.dependency 'Core', '~> 0.0'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
+  s.tvos.deployment_target = '9.0'
+  s.watchos.deployment_target = '2.0'
+
 end

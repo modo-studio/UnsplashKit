@@ -1,7 +1,21 @@
 PODS:
+  - Core (0.0.3):
+    - Core/Foundation (= 0.0.3)
+    - Core/Networking (= 0.0.3)
+    - Core/Persistence (= 0.0.3)
+  - Core/Foundation (0.0.3):
+    - RxSwift (~> 2.6)
+    - SwiftyJSON (~> 2.3)
+  - Core/Networking (0.0.3):
+    - Core/Foundation
+  - Core/Persistence (0.0.3):
+    - Core/Foundation
   - Nimble (3.2.0)
   - Quick (0.9.2)
-  - UnsplashKit (0.1.0)
+  - RxSwift (2.6.0)
+  - SwiftyJSON (2.3.2)
+  - UnsplashKit (0.0.1):
+    - Core (~> 0.0)
 
 DEPENDENCIES:
   - Nimble (~> 3.0)
@@ -13,10 +27,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  Core: cb24f20d60b37f30c0f63352fb9946661e24372d
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  UnsplashKit: 6dec20fede489b9935c04411204bddae664898bc
+  RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  UnsplashKit: 08bf1a9e6257b0510332681ea6f14571885de023
 
-PODFILE CHECKSUM: 6c632f14f5d823d4d7e55811c7aef6e3e0716b5b
+PODFILE CHECKSUM: ed685fb5716f1ba871bd76febdefd0b1601011ac
 
 COCOAPODS: 1.0.1
