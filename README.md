@@ -1,6 +1,6 @@
 # UnsplashKit
 
-[![CI Status](http://img.shields.io/travis/tulapps/UnsplashKit.svg?style=flat)](https://travis-ci.org/tulapps/UnsplashKit)
+[![CI Status](http://img.shields.io/travis/carambastudio/UnsplashKit.svg?style=flat)](https://travis-ci.org/carambastudio/UnsplashKit)
 
 ## Example
 
@@ -13,7 +13,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 Core podspec is part of the [Specs]() repository. In order to be recognized by CocoaPods you have to add that repository to your CocoaPods setup:
 
 ```
-pod repo add tulapps https://github.com/tulapps/Specs
+pod repo add carambastudio https://github.com/carambastudio/Specs
 ```
 
 To install it, simply add the following line to your Podfile:
