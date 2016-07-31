@@ -1,17 +1,19 @@
 PODS:
-  - Core (0.0.3):
-    - Core/Foundation (= 0.0.3)
-    - Core/Networking (= 0.0.3)
-    - Core/Persistence (= 0.0.3)
-  - Core/Foundation (0.0.3):
+  - Core (0.0.8):
+    - Core/Foundation (= 0.0.8)
+    - Core/Networking (= 0.0.8)
+    - Core/Persistence (= 0.0.8)
+  - Core/Foundation (0.0.8):
     - RxSwift (~> 2.6)
     - SwiftyJSON (~> 2.3)
-  - Core/Networking (0.0.3):
+  - Core/Networking (0.0.8):
     - Core/Foundation
-  - Core/Persistence (0.0.3):
+    - KeychainSwift (~> 3.0)
+  - Core/Persistence (0.0.8):
     - Core/Foundation
+  - KeychainSwift (3.0.16)
   - Nimble (3.2.0)
-  - Quick (0.9.2)
+  - Quick (0.9.3)
   - RxSwift (2.6.0)
   - SwiftyJSON (2.3.2)
   - UnsplashKit (0.0.1):
@@ -27,9 +29,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Core: cb24f20d60b37f30c0f63352fb9946661e24372d
+  Core: a9d0662afa064160f6261bd60009c7cfb6850d91
+  KeychainSwift: a5bb85cd498ce2217b55e055ec59e9268d83384c
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
   RxSwift: 77f3a0b15324baa7a1c9bfa9f199648a82424e26
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UnsplashKit: 08bf1a9e6257b0510332681ea6f14571885de023
