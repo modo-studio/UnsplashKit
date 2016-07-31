@@ -26,26 +26,33 @@ public class SourceRequestFactory {
     
     // MARK: - Public
     
-    internal func category(category: SourceCategory) -> NSURLRequest {
-        return self.requestBuilder.patch(path: "category/\(category.description)").build()
+    internal func category(category: SourceCategory, size: (Int, Int)? = nil) -> NSURLRequest {
+        return self.patch(path: "category/\(category.description)", size: size)
     }
 
-    internal func user(username: String) -> NSURLRequest {
-        return self.requestBuilder.patch(path: "user/\(username)").build()
+    internal func user(username: String, size: (Int, Int)? = nil) -> NSURLRequest {
+        return self.patch(path: "user/\(username)", size: size)
     }
 
-    internal func usersLikes(username: String) -> NSURLRequest {
-        return self.requestBuilder.patch(path: "user/\(username)/likes").build()
+    internal func usersLikes(username: String, size: (Int, Int)? = nil) -> NSURLRequest {
+        return self.patch(path: "user/\(username)/likes", size: size)
     }
 
-    internal func collection(collectionID: String) -> NSURLRequest {
-        return self.requestBuilder.patch(path: "collection/\(collectionID)").build()
+    internal func collection(collectionID: String, size: (Int, Int)? = nil) -> NSURLRequest {
+        return self.patch(path: "collection/\(collectionID)", size: size)
     }
 
-    internal func photo(photoID: [String]) -> NSURLRequest {
-        return self.requestBuilder.patch(path: "/\(photoID)").build()
+    internal func photo(photoID: [String], size: (Int, Int)? = nil) -> NSURLRequest {
+        return self.patch(path: "/\(photoID)", size: size)
     }
 
+    private func patch(path p: String, size: (Int, Int)? = nil) -> NSURLRequest {
+        var fullPath = p
+        if let size = size {
+            fullPath += "/\(size.0)x\(size.1)"
+        }
+        return self.requestBuilder.patch(path: p).build()
+    }
     
     //TODO: Fixed daily/weekly photo
     //TODO: Random search term
