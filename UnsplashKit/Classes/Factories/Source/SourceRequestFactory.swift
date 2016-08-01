@@ -42,7 +42,7 @@ public class SourceRequestFactory {
         return self.patch(path: "user/\(username)", size: size, filter: filter)
     }
 
-    internal func usersLikes(username: String, size: CGSize? = nil) -> NSURLRequest {
+    internal func userLikes(username: String, size: CGSize? = nil) -> NSURLRequest {
         return self.patch(path: "user/\(username)/likes", size: size)
     }
 

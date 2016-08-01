@@ -1,6 +1,6 @@
 import Foundation
 
-enum SourceRequestFilter: String {
+public enum SourceRequestFilter: String {
     
     case None
     case Daily
