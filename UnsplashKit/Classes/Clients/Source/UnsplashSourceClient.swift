@@ -13,7 +13,7 @@ public class UnsplashSourceClient: HttpClient<UIImage> {
     
     public init(requestFactory: SourceRequestFactory = SourceRequestFactory.instance) {
         self.requestFactory = requestFactory
-        super.init(responseAdapter: UrlDataResponseAdapter.instance)
+        super.init(responseAdapter: UrlDataResponseAdapter())
     }
     
 }
