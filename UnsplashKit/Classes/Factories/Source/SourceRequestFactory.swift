@@ -25,32 +25,53 @@ public class SourceRequestFactory {
     
     
     // MARK: - Public
+
+    internal func random(size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+        return self.patch(path: "random", size: size, filter: filter)
+    }
     
-    internal func category(category: SourceCategory, size: (Int, Int)? = nil) -> NSURLRequest {
-        return self.patch(path: "category/\(category.description)", size: size)
+    internal func search(terms: [String], size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+        return self.patch(path: "", size: size, filter: filter, search: terms)
     }
 
-    internal func user(username: String, size: (Int, Int)? = nil) -> NSURLRequest {
-        return self.patch(path: "user/\(username)", size: size)
+    internal func category(category: SourceCategory, size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+        return self.patch(path: "category/\(category.description)", size: size, filter: filter)
     }
 
-    internal func usersLikes(username: String, size: (Int, Int)? = nil) -> NSURLRequest {
+    internal func user(username: String, size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+        return self.patch(path: "user/\(username)", size: size, filter: filter)
+    }
+
+    internal func usersLikes(username: String, size: CGSize? = nil) -> NSURLRequest {
         return self.patch(path: "user/\(username)/likes", size: size)
     }
 
-    internal func collection(collectionID: String, size: (Int, Int)? = nil) -> NSURLRequest {
+    internal func collection(collectionID: String, size: CGSize? = nil) -> NSURLRequest {
         return self.patch(path: "collection/\(collectionID)", size: size)
     }
 
-    internal func photo(photoID: [String], size: (Int, Int)? = nil) -> NSURLRequest {
+    internal func photo(photoID: String, size: CGSize? = nil) -> NSURLRequest {
         return self.patch(path: "/\(photoID)", size: size)
     }
-
-    private func patch(path p: String, size: (Int, Int)? = nil) -> NSURLRequest {
+    
+    private func patch(path p: String,
+                            size: CGSize? = nil,
+                            filter: SourceRequestFilter? = .None,
+                            search: [String]? = nil) -> NSURLRequest {
         var fullPath = p
+
         if let size = size {
-            fullPath += "/\(size.0)x\(size.1)"
+            fullPath += "/\(size.width)x\(size.height)"
         }
+        
+        if let filter = filter {
+            fullPath += "/\(filter.description)"
+        }
+        
+        if let terms = search {
+            fullPath += "/?\(terms.joinWithSeparator(","))"
+        }
+        
         return self.requestBuilder.patch(path: p).build()
     }
     
