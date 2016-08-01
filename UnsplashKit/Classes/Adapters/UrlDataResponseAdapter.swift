@@ -11,8 +11,10 @@ public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResp
     // MARK: - Public
     
     public override func adapt(input: (data: NSData?, response: NSURLResponse?)) -> (UIImage, NSURLResponse?)! {
-        //return (input.data!, input.response)
-        return (UIImage(), input.response)
+        guard let data = input.data, let image = UIImage(data: data) else {
+            return (UIImage(), input.response)
+        }
+        return (image, input.response)
     }
     
 }
