@@ -68,14 +68,23 @@ public class SourceRequestFactory {
             fullPath += "/\(filter.description)"
         }
         
-        if let terms = search {
-            fullPath += "/?\(terms.joinWithSeparator(","))"
-        }
+        let request = self.requestBuilder.get(path: fullPath)
         
-        return self.requestBuilder.get(path: p).build()
+        if let terms = search {
+            return request.withParameters(["search" : terms.joinWithSeparator(",")]).build(.Custom(searchParameterEncoding))
+        } else {
+            return request.build()
+        }
     }
-    
-    //TODO: Fixed daily/weekly photo
-    //TODO: Random search term
-    
+}
+
+extension SourceRequestFactory {
+    func searchParameterEncoding(request: NSURLRequest, params: [String: AnyObject]?) -> (NSMutableURLRequest, NSError?) {
+        let r = request as! NSMutableURLRequest
+        if let params = params,
+            let searchTerms = params["search"] as? String {
+            r.URL = NSURL(string: "\(request.URL!.absoluteString)?\(searchTerms)")
+        }
+        return (request as! NSMutableURLRequest, nil)
+    }
 }
