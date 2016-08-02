@@ -5,10 +5,10 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 Swift client for unsplash.com API
                        DESC
-  s.homepage         = 'https://github.com/carambastudio/UnsplashKit'
+  s.homepage         = 'https://github.com/carambalabs/UnsplashKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Pedro Piñera Buendía' => 'pepibumur@gmail.com', 'Sergi Gracia' => 'sergigram@gmail.com', 'Isaal Roldán' => "isaac.roldan@gmail.com" }
-  s.source           = { :git => 'https://github.com/carambastudio/UnsplashKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
   
