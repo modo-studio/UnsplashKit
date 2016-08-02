@@ -61,7 +61,7 @@ public class SourceRequestFactory {
         var fullPath = p
 
         if let size = size {
-            fullPath += "/\(size.width)x\(size.height)"
+            fullPath += "/\(Int(size.width))x\(Int(size.height))"
         }
         
         if let filter = filter {

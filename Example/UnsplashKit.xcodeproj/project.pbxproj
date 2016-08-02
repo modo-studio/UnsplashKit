@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E2DBB571D50F47C00A1D651 /* SourceRequestFactorySharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2DBB561D50F47C00A1D651 /* SourceRequestFactorySharedExample.swift */; };
 		3939ACE6EA51B6290AF00072 /* Pods_UnsplashKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D61B7457673A21ED1680B4 /* Pods_UnsplashKit_Tests.framework */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E2DBB561D50F47C00A1D651 /* SourceRequestFactorySharedExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceRequestFactorySharedExample.swift; sourceTree = "<group>"; };
 		2FCAA12970BC16B2B6BCC4BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		42AAAB0FA2B8FF078AEC3B67 /* Pods-UnsplashKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnsplashKit_Tests/Pods-UnsplashKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* UnsplashKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRequestFactorySpec.swift; sourceTree = "<group>"; };
 		61C326D78E45B997A7A8C63D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77D61B7457673A21ED1680B4 /* Pods_UnsplashKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnsplashKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DFDBF5F74BC5AEB35643C83 /* UnsplashKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = UnsplashKit.podspec; path = ../UnsplashKit.podspec; sourceTree = "<group>"; };
@@ -57,7 +59,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */,
+				1E2DBB561D50F47C00A1D651 /* SourceRequestFactorySharedExample.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -218,7 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */,
+				1E2DBB571D50F47C00A1D651 /* SourceRequestFactorySharedExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
