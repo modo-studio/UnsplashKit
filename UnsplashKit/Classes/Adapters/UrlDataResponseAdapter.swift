@@ -9,6 +9,10 @@ import Core
 
 public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResponse?), (UnsplashImage, NSURLResponse?)> {
     
+    // MARK: - Singleton
+    
+    public static var instance: UrlDataResponseAdapter = UrlDataResponseAdapter()
+    
     // MARK: - Public
     
     public override func adapt(input: (data: NSData?, response: NSURLResponse?)) -> (UnsplashImage, NSURLResponse?)! {
