@@ -1,11 +1,5 @@
 import Foundation
-import Core
-
-#if os(OSX)
-    public typealias UnsplashImage = NSImage
-#else
-    public typealias UnsplashImage = UIImage
-#endif
+import CarambaKit
 
 public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResponse?), (UnsplashImage, NSURLResponse?)> {
     
@@ -14,7 +8,7 @@ public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResp
     public static var instance: UrlDataResponseAdapter = UrlDataResponseAdapter()
     
     // MARK: - Public
-    
+        
     public override func adapt(input: (data: NSData?, response: NSURLResponse?)) -> (UnsplashImage, NSURLResponse?)! {
         guard let data = input.data, let image = UnsplashImage(data: data) else {
             return (UnsplashImage(), input.response)

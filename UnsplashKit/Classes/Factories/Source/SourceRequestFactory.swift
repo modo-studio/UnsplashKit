@@ -1,5 +1,5 @@
 import Foundation
-import Core
+import CarambaKit
 
 public class SourceRequestFactory {
     

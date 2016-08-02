@@ -1,9 +1,9 @@
 import Foundation
 import RxSwift
 import SwiftyJSON
-import Core
+import CarambaKit
 
-public class UnsplashSourceClient: HttpClient<UIImage> {
+public class UnsplashSourceClient: HttpClient<UnsplashImage> {
     
     // MARK: - Attributes
     
