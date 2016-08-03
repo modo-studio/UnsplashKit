@@ -23,7 +23,7 @@ lane :push do
     description: changelog,
     commitish: "master"
   )
-  push_to_git_remote
+  push_to_git_remote(local_branch: 'master', remote_branch: 'master', force: false, tags: true)
   pod_push(allow_warnings: true)
   pod_push(path: 'UnsplashKit.podspec', allow_warnings: true, repo: 'carambalabs', sources: ['https://github.com/carambalabs/Specs', 'https://github.com/CocoaPods/Specs'])
   slack(
