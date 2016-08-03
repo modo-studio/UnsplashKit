@@ -4,6 +4,7 @@ before_install:
 - gem install bundler
 - bundle install
 - bundle exec pod repo add carambalabs https://github.com/carambalabs/UnsplashKit
+- bundle exec pod repo update
 - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/carambalabs/UnsplashKit.git"
 script:
 - bundle exec fastlane travis

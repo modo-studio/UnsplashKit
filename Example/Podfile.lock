@@ -24,7 +24,7 @@ PODS:
 DEPENDENCIES:
   - Mockingjay (~> 1.2.1)
   - Nimble (~> 3.0)
-  - Quick (~> 0.8)
+  - Quick (~> 0.9)
   - UnsplashKit (from `../`)
 
 EXTERNAL SOURCES:
@@ -42,6 +42,6 @@ SPEC CHECKSUMS:
   UnsplashKit: bed0a0fc0c29bf5d35eeba676cc15f68ed31ecd2
   URITemplate: 398a48d6559e23b77bd41176b675b017ad1fc959
 
-PODFILE CHECKSUM: e9f10fc9d4cb54476eb7e9bb9253057e231e99a3
+PODFILE CHECKSUM: 018372739b70e1340888b1cfda7c78ce88778514
 
 COCOAPODS: 1.0.1
