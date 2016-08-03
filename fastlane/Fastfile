@@ -1,0 +1,39 @@
+lane :pods do
+  cocoapods(podfile: "Example/")
+end
+
+lane :tests do
+  scan(workspace: "Example/UnsplashKit.xcworkspace", scheme: "UnsplashKit-Example", clean: true)
+end
+
+lane :travis do
+  pods
+  tests
+end
+
+lane :push do
+  version = version_bump_podspec(path: "UnsplashKit.podspec", bump_type: "patch")
+  git_commit(path: "./UnsplashKit.podspec", message: "Bump podspec to #{version}")
+  changelog = changelog_from_git_commits
+  github_release = set_github_release(
+    repository_name: "carambalabs/UnsplashKit",
+    api_token: ENV['GITHUB_TOKEN'],
+    name: version,
+    tag_name: version,
+    description: changelog,
+    commitish: "master"
+  )
+  push_to_git_remote
+  pod_push(allow_warnings: true)
+  pod_push(path: 'UnsplashKit.podspec', allow_warnings: true, repo: 'carambalabs', sources: ['https://github.com/carambalabs/Specs', 'https://github.com/CocoaPods/Specs'])
+  slack(
+    message: "A new version of UnsplashKit has been deployed",
+    channel: "#notifications",
+    success: true,
+    payload: {
+      'Build Date' => Time.new.to_s,
+      'Version' => version,
+    },
+    default_payloads: [:git_branch, :git_author]
+  )
+end

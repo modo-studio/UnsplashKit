@@ -54,11 +54,11 @@ public class SourceRequestFactory {
         return self.get(path: "/\(photoID)", size: size)
     }
     
-    private func get(path p: String,
+    private func get(path path: String,
                             size: CGSize? = nil,
                             filter: SourceRequestFilter? = .None,
                             search: [String]? = nil) -> NSURLRequest {
-        var fullPath = p
+        var fullPath = path
 
         if let size = size {
             fullPath += "/\(Int(size.width))x\(Int(size.height))"

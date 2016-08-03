@@ -28,8 +28,8 @@ extension UnsplashSourceClient {
         return self.request(self.requestFactory.collection(collectionID, size: size)).map { $0.0 }
     }
 
-    public func photo(id: String, size: CGSize? = nil) -> Observable<UnsplashImage> {
-        return self.request(self.requestFactory.photo(id, size: size)).map { $0.0 }
+    public func photo(identifier: String, size: CGSize? = nil) -> Observable<UnsplashImage> {
+        return self.request(self.requestFactory.photo(identifier, size: size)).map { $0.0 }
     }
-    
+
 }
