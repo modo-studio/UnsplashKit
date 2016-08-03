@@ -1,6 +1,6 @@
 # UnsplashKit
 
-[![CI Status](http://img.shields.io/travis/carambastudio/UnsplashKit.svg?style=flat)](https://travis-ci.org/carambastudio/UnsplashKit)
+[![Build Status](https://travis-ci.org/carambalabs/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
 [![codecov](https://codecov.io/gh/carambalabs/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
 
 ## Example
