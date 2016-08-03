@@ -1,17 +1,19 @@
 import Foundation
-import Core
+import CarambaKit
 
-public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResponse?), (NSData, NSURLResponse?)> {
+public class UrlDataResponseAdapter: Adapter<(data: NSData?, response: NSURLResponse?), (UnsplashImage, NSURLResponse?)> {
     
     // MARK: - Singleton
     
     public static var instance: UrlDataResponseAdapter = UrlDataResponseAdapter()
     
-    
     // MARK: - Public
-    
-    public override func adapt(input: (data: NSData?, response: NSURLResponse?)) -> (NSData, NSURLResponse?)! {
-        return (input.data!, input.response)
+        
+    public override func adapt(input: (data: NSData?, response: NSURLResponse?)) -> (UnsplashImage, NSURLResponse?)! {
+        guard let data = input.data, let image = UnsplashImage(data: data) else {
+            return (UnsplashImage(), input.response)
+        }
+        return (image, input.response)
     }
     
 }

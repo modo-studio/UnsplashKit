@@ -4,7 +4,8 @@ source 'https://github.com/Tulapps/Specs.git'
 use_frameworks!
 target 'UnsplashKit_Tests' do
   pod 'UnsplashKit', :path => '../'
-  
+
   pod 'Quick', '~> 0.8'
   pod 'Nimble', '~> 3.0'
+  pod 'Mockingjay', '~> 1.2.1'
 end
