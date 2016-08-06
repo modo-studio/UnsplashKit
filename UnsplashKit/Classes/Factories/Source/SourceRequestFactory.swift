@@ -71,9 +71,9 @@ public class SourceRequestFactory {
         let request = self.requestBuilder.get(path: fullPath)
         
         if let terms = search {
-            return request.withParameters(["search" : terms.joinWithSeparator(",")]).build(.Custom(searchParameterEncoding))
+            return request.withParameters(["search" : terms.joinWithSeparator(",")]).build(.Custom(searchParameterEncoding), bodyEncoding: .URL)
         } else {
-            return request.build()
+            return request.build(bodyEncoding: .URL)
         }
     }
 }
