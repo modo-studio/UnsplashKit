@@ -27,7 +27,7 @@ class SourceRequestFactorySpec: QuickSpec {
             itBehavesLike("factory-request", sharedExampleContext: { () -> (NSDictionary) in
                 var context: [String: AnyObject] = [:]
                 context["request"] = subject.search(["nature", "mountain"])
-                context["url"] = "https://source.unsplash.com/?nature,mountain"
+                context["url"] = "https://source.unsplash.com/featured?nature,mountain"
                 context["method"] = "GET"
                 return context
             })

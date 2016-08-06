@@ -31,7 +31,7 @@ public class SourceRequestFactory {
     }
     
     internal func search(terms: [String], size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
-        return self.get(path: "", size: size, filter: filter, search: terms)
+        return self.get(path: "featured", size: size, filter: filter, search: terms)
     }
 
     internal func category(category: SourceCategory, size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
