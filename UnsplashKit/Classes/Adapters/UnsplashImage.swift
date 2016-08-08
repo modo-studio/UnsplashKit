@@ -1,4 +1,3 @@
-
 #if os(OSX)
     public typealias UnsplashImage = NSImage
 #else

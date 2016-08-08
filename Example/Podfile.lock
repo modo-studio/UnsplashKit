@@ -1,8 +1,8 @@
 PODS:
-  - CarambaKit/Foundation (0.0.11):
+  - CarambaKit/Foundation (0.0.9):
     - RxSwift (~> 2.6)
     - SwiftyJSON (~> 2.3)
-  - CarambaKit/Networking (0.0.11):
+  - CarambaKit/Networking (0.0.9):
     - CarambaKit/Foundation
     - KeychainSwift (~> 3.0)
   - KeychainSwift (3.0.16)
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CarambaKit: 3a3fcf652bfa6d7a0e2aefe1ab1b719577073373
+  CarambaKit: bdaf4ccfa9891b9539cbc956d2d43e517b1de104
   KeychainSwift: a5bb85cd498ce2217b55e055ec59e9268d83384c
   Mockingjay: 5de65f14108473afc6727e05df9a3ecc9cef8562
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
