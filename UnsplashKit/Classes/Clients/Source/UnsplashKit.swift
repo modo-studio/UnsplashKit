@@ -3,7 +3,7 @@ import RxSwift
 import SwiftyJSON
 import CarambaKit
 
-public class UnsplashKit: HttpClient<UnsplashImage?> {
+public class UnsplashKit: HttpClient<UnsplashImage> {
 
     // MARK: - Attributes
     
