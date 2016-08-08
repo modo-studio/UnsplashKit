@@ -1,4 +1,4 @@
-# UnsplashKit
+![logo](assets/unsplash-kit-logo.png)
 
 [![Build Status](https://travis-ci.org/carambalabs/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
 [![codecov](https://codecov.io/gh/carambalabs/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
