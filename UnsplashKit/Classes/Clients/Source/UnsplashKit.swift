@@ -1,6 +1,5 @@
 import Foundation
 import RxSwift
-import SwiftyJSON
 import CarambaKit
 
 public class UnsplashKit: HttpClient<UnsplashImage> {
