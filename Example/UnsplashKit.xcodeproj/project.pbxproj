@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E38967E1D59DD460012957F /* UnsplashKitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */; };
 		3939ACE6EA51B6290AF00072 /* Pods_UnsplashKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D61B7457673A21ED1680B4 /* Pods_UnsplashKit_Tests.framework */; };
-		557257321D5922AE0063B1E5 /* UrlDataResponseAdatperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557257311D5922AE0063B1E5 /* UrlDataResponseAdatperSpec.swift */; };
 		557257351D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557257341D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift */; };
 		607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashKitSpec.swift; sourceTree = "<group>"; };
 		2FCAA12970BC16B2B6BCC4BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		42AAAB0FA2B8FF078AEC3B67 /* Pods-UnsplashKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnsplashKit_Tests/Pods-UnsplashKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		557257311D5922AE0063B1E5 /* UrlDataResponseAdatperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlDataResponseAdatperSpec.swift; sourceTree = "<group>"; };
 		557257341D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceRequestFactorySharedExample.swift; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* UnsplashKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnsplashKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */,
 				607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */,
-				557257311D5922AE0063B1E5 /* UrlDataResponseAdatperSpec.swift */,
 				557257331D5922D00063B1E5 /* Configuration */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -247,8 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E38967E1D59DD460012957F /* UnsplashKitSpec.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */,
-				557257321D5922AE0063B1E5 /* UrlDataResponseAdatperSpec.swift in Sources */,
 				557257351D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

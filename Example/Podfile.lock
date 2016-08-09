@@ -29,7 +29,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   UnsplashKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   CarambaKit: bdaf4ccfa9891b9539cbc956d2d43e517b1de104
