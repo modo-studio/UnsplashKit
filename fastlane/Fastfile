@@ -22,7 +22,7 @@ lane :push do
   github_tag_version = Versionomy.parse(github_tag)
   version = github_tag_version.bump(:tiny).to_s
   version_bump_podspec(path: "UnsplashKit.podspec", version_number: version)
-  git_commit(path: "./UnsplashKit.podspec", message: "#{COMMIT_MESSAGE} #{version}")
+  git_commit(path: ["./UnsplashKit.podspec", "./Example/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
   changelog = changelog_from_git_commits
   github_release = set_github_release(
     repository_name: "carambalabs/UnsplashKit",
