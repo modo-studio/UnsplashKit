@@ -9,6 +9,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     babosa (1.0.2)
+    blockenspiel (0.5.0)
     cert (1.4.1)
       fastlane_core (>= 0.29.1, < 1.0.0)
       spaceship (>= 0.22.0, < 1.0.0)
@@ -287,6 +288,8 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    versionomy (0.5.0)
+      blockenspiel (~> 0.5)
     word_wrap (1.0.0)
     xcode-install (2.0.2)
       claide (>= 0.9.1, < 1.1.0)
@@ -308,6 +311,7 @@ DEPENDENCIES
   danger
   danger-prose
   fastlane
+  versionomy
 
 BUNDLED WITH
    1.12.5

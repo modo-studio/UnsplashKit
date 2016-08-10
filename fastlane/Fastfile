@@ -1,3 +1,5 @@
+require 'versionomy'
+
 lane :pods do
   cocoapods(podfile: "Example/")
 end
@@ -12,7 +14,11 @@ lane :travis do
 end
 
 lane :push do
-  version = version_bump_podspec(path: "UnsplashKit.podspec", bump_type: "patch")
+  github_tag = last_git_tag
+  github_tag ||= "0.0.1"
+  github_tag_version = Versionomy.parse(github_tag)
+  version = github_tag_version.bump(:tiny).to_s
+  version_bump_podspec(path: "DoneThisKit.podspec", version_number: version)
   git_commit(path: "./UnsplashKit.podspec", message: "Bump podspec to #{version}")
   changelog = changelog_from_git_commits
   github_release = set_github_release(
