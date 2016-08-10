@@ -137,10 +137,17 @@ To install it, simply add the following line to your Podfile:
 pod "UnsplashKit"
 ```
 
-## Author
-
-Made with :heart: by [Caramba.in](caramba.in)
-
 ## License
 
 UnsplashKit is available under the MIT license. See the LICENSE file for more info.
+
+## About
+
+<img src="assets/caramba.png" width="184" />
+
+UnsplashKit is maintained and funded by [Caramba](caramba.in).
+
+We :heart: open source software!
+See [our other open source projects](https://github.com/carambalabs),
+read [our blog](https://caramba.in/blog) or say hi on twitter
+([@carambalabs](https://twitter.com/carambalabs)).
