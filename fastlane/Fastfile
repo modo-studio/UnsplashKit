@@ -11,7 +11,7 @@ end
 lane :travis do
   pods
   tests
-  pod_lib_lint(allow_warnings: true, verbose: true)
+  pod_lib_lint(allow_warnings: true, verbose: false)
 end
 
 lane :push do
