@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/carambalabs/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
 [![codecov](https://codecov.io/gh/carambalabs/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
+[![Dependency Status](https://gemnasium.com/badges/github.com/carambalabs/CarambaKit.svg)](https://gemnasium.com/github.com/carambalabs/CarambaKit)
 
 ## Example
 
