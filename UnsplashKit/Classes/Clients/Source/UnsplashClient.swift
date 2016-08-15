@@ -5,7 +5,7 @@ import CarambaKit
 public class UnsplashClient: HttpClient<UnsplashImage> {
 
     // MARK: - Attributes
-    
+
     internal let requestFactory: SourceRequestFactory
 
     // MARK: - Init

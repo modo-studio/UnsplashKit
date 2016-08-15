@@ -12,7 +12,7 @@ Swift client for unsplash.com API
   s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
-  
+
   s.dependency 'CarambaKit/Networking', '~> 0.0'
 
   s.ios.deployment_target = '8.0'

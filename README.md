@@ -26,7 +26,7 @@ Source API allows you to get an Unsplash image in different ways.
 #### Random photo
 
 ```swift
-UnsplashKit().randomPhoto().subscribeNext { image in
+UnsplashClient().randomPhoto().subscribeNext { image in
   // handle the image
 }
 ```
@@ -34,7 +34,7 @@ UnsplashKit().randomPhoto().subscribeNext { image in
 #### Random from a category
 
 ```swift
-UnsplashKit().randomPhoto(fromCategory: .Nature).subscribeNext { image in
+UnsplashClient().randomPhoto(fromCategory: .Nature).subscribeNext { image in
     // handle the image
 }
 ```
@@ -53,7 +53,7 @@ Unsplash offers a list of predefined categories. You can ask for a photo from an
 #### Random from a specific user
 
 ```swift
-UnsplashKit().randomPhoto(fromUser: "mkwlsn").subscribeNext { image in
+UnsplashClient().randomPhoto(fromUser: "mkwlsn").subscribeNext { image in
     // handle the image
 }
 ```
@@ -61,7 +61,7 @@ UnsplashKit().randomPhoto(fromUser: "mkwlsn").subscribeNext { image in
 #### Random from a user's likes
 
 ```swift
-UnsplashKit().randomPhoto(fromUserLikes: "mkwlsn").subscribeNext { image in
+UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn").subscribeNext { image in
     // handle the image
 }
 ```
@@ -69,7 +69,7 @@ UnsplashKit().randomPhoto(fromUserLikes: "mkwlsn").subscribeNext { image in
 #### Random from a collection
 
 ```swift
-UnsplashKit().randomPhoto(fromCollection: "176316").subscribeNext { image in
+UnsplashClient().randomPhoto(fromCollection: "176316").subscribeNext { image in
     // handle the image
 }
 ```
@@ -77,7 +77,7 @@ UnsplashKit().randomPhoto(fromCollection: "176316").subscribeNext { image in
 #### Random search term
 
 ```swift
-UnsplashKit().randomPhoto(fromSearch: ["nature", "water"]).subscribeNext { image in
+UnsplashClient().randomPhoto(fromSearch: ["nature", "water"]).subscribeNext { image in
     // handle the image
 }
 ```
@@ -85,7 +85,7 @@ UnsplashKit().randomPhoto(fromSearch: ["nature", "water"]).subscribeNext { image
 #### Specific photo
 
 ```swift
-UnsplashKit().photo("WLUHO9A_xik").subscribeNext { image in
+UnsplashClient().photo("WLUHO9A_xik").subscribeNext { image in
     // handle the image
 }
 ```
@@ -95,7 +95,7 @@ UnsplashKit().photo("WLUHO9A_xik").subscribeNext { image in
 If you want to get an image of a specific size you can use the optional `size` parameter in any call.
 
 ```swift
-UnsplashKit().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height: 200)).subscribeNext { image in
+UnsplashClient().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height: 200)).subscribeNext { image in
     // handle the image
 }
 ```
@@ -105,7 +105,7 @@ UnsplashKit().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height
 The calls `random`, `search`, `category` and `user` can also be limited to only updating once per day or week. To do so, simply use the optional `filter` parameter.
 
 ```swift
-UnsplashKit().randomPhoto(filter: .Daily).subscribeNext { image in
+UnsplashClient().randomPhoto(filter: .Daily).subscribeNext { image in
     // handle the image
 }
 ```
@@ -115,7 +115,7 @@ UnsplashKit().randomPhoto(filter: .Daily).subscribeNext { image in
 To handle possible errors subscribe to the Error handler.
 
 ```swift
-UnsplashKit().randomPhoto()
+UnsplashClient().randomPhoto()
   .doOnNext{ image in
     // handle the image
   }
