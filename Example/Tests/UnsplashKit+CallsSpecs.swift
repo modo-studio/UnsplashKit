@@ -6,10 +6,10 @@ import RxSwift
 
 @testable import UnsplashKit
 
-class UnsplashKitCallsSpec: QuickSpec {
+class UnsplashClientCallsSpec: QuickSpec {
     override func spec() {
         
-        var subject: UnsplashKit!
+        var subject: UnsplashClient!
         var requestFactory: SourceRequestFactory!
         var image: UIImage!
         
@@ -20,7 +20,7 @@ class UnsplashKitCallsSpec: QuickSpec {
         }
         
         beforeEach() {
-            subject = UnsplashKit()
+            subject = UnsplashClient()
             requestFactory = SourceRequestFactory()
             image = UIImage(contentsOfFile: NSBundle(forClass: self.dynamicType).pathForResource("rocket", ofType: "png")!)
             

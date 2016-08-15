@@ -1,7 +1,7 @@
 import Foundation
 import RxSwift
 
-extension UnsplashKit {
+extension UnsplashClient {
 
     public func randomPhoto(size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> Observable<UnsplashImage> {
         return self.request(self.requestFactory.random(size, filter: filter)).map { $0.0 }

@@ -5,7 +5,7 @@ import RxSwift
 
 @testable import UnsplashKit
 
-class UnsplashKitSharedExample: QuickConfiguration {
+class UnsplashClientSharedExample: QuickConfiguration {
     override class func configure(configuration: Configuration) {
         sharedExamples("kit-call") { (sharedExampleContext: SharedExampleContext) in
             

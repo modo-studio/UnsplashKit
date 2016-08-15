@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import CarambaKit
 
-public class UnsplashKit: HttpClient<UnsplashImage> {
+public class UnsplashClient: HttpClient<UnsplashImage> {
 
     // MARK: - Attributes
     
