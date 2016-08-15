@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E38967E1D59DD460012957F /* UnsplashKitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */; };
 		1E3896801D59E5D30012957F /* UnsplashKit+CallsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */; };
 		1E3896851D59F1660012957F /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3896841D59F1660012957F /* rocket.png */; };
 		1E3896871D5A130B0012957F /* UnsplashKitSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3896861D5A130B0012957F /* UnsplashKitSharedExample.swift */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashKitSpec.swift; sourceTree = "<group>"; };
 		1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsplashKit+CallsSpecs.swift"; sourceTree = "<group>"; };
 		1E3896841D59F1660012957F /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
 		1E3896861D5A130B0012957F /* UnsplashKitSharedExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashKitSharedExample.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1E38967D1D59DD460012957F /* UnsplashKitSpec.swift */,
 				1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */,
 				607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */,
 				557257331D5922D00063B1E5 /* Configuration */,
@@ -265,7 +262,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E38967E1D59DD460012957F /* UnsplashKitSpec.swift in Sources */,
 				1E3896801D59E5D30012957F /* UnsplashKit+CallsSpecs.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */,
 				557257351D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift in Sources */,
