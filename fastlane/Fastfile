@@ -27,6 +27,7 @@ lane :push do
     description: changelog,
     commitish: "master"
   )
+  sh("git fetch --tags")
   push_to_git_remote(remote_branch: 'master', force: false, tags: true)
   pod_push(allow_warnings: true, verbose: true)
   pod_push(path: 'UnsplashKit.podspec', verbose: true, allow_warnings: true, repo: 'carambalabs', sources: ['https://github.com/carambalabs/Specs', 'https://github.com/CocoaPods/Specs'])
