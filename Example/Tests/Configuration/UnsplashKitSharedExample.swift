@@ -8,16 +8,16 @@ import RxSwift
 class UnsplashClientSharedExample: QuickConfiguration {
     override class func configure(configuration: Configuration) {
         sharedExamples("kit-call") { (sharedExampleContext: SharedExampleContext) in
-            
+
             var observable: Observable<UnsplashImage>!
             var stubbedImage: UIImage!
-            
+
             beforeEach {
                 let context = sharedExampleContext()
                 observable = context["observable"] as! Observable<UnsplashImage>
                 stubbedImage = context["stubbedImage"] as! UIImage
             }
-            
+
             it("should return the correct image") {
                 var resultImage: UIImage?
                 waitUntil { done in

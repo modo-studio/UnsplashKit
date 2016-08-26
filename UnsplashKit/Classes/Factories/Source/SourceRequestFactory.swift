@@ -1,13 +1,5 @@
-#if os(OSX)
-    import AppKit
-#elseif os(watchOS)
-    import WatchKit
-#else
-    import Foundation
-#endif
-
+import Foundation
 import CarambaKit
-
 
 public class SourceRequestFactory {
 
