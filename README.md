@@ -1,4 +1,4 @@
-![UnsplashKit: Unsplash API Client in Swift](UnsplashKit/assets/unsplash-kit-logo.png)
+![UnsplashKit: Unsplash API Client in Swift](assets/unsplash-kit-logo.png)
 
 [![Build Status](https://travis-ci.org/carambalabs/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UnsplashKit.svg)](https://img.shields.io/cocoapods/v/UnsplashKit.svg)
