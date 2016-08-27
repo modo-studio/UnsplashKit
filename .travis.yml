@@ -11,4 +11,5 @@ before_install:
 script:
 - bundle exec fastlane travis
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+- bundle exec fastlane push
