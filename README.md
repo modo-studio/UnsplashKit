@@ -143,6 +143,8 @@ We :heart: open sourcing at [Caramba](http://caramba.in). Check out our open [so
 
 If you're interested in contributing check out our [CONTRIBUTING](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and code of [CONDUCT](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md)
 
+Read [our blog](https://blog.caramba.in) or say hi on twitter ([@carambalabs](https://twitter.com/carambalabs)).
+
 ## License
 
 UnsplashKit is available under the MIT license. See the LICENSE file for more info.
