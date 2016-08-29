@@ -137,13 +137,17 @@ To install it, simply add the following line to your Podfile:
 pod "UnsplashKit"
 ```
 
-## Caramba :heart: Open Source
+## About
 
-We :heart: open sourcing at [Caramba](http://caramba.in). Check out our open [source projects](https://github.com/carambalabs/) and do not hesitate to contribute with them. We're looking for developers like you that help us to improve the projects we've been part of and contribute with the community.
+<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/avatar_rounded.png?raw=true" width="70" />
 
-If you're interested in contributing check out our [CONTRIBUTING](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and code of [CONDUCT](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md)
+This project is funded and maintained by [Caramba](http://caramba.in). We 💛 open source software!
 
-Read [our blog](https://blog.caramba.in) or say hi on twitter ([@carambalabs](https://twitter.com/carambalabs)).
+Check out our other [open source projects](https://github.com/carambalabs/), read our [blog](http://blog.caramba.in) or say :wave: on twitter [@carambalabs](http://twitter.com/carambalabs).
+
+## Contribute
+
+Contributions are welcome :metal: We encourage developers like you to help us improve the projects we've shared with the community. Please see the [Contributing Guide](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md).
 
 ## License
 
