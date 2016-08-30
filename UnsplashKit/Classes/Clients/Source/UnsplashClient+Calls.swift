@@ -1,6 +1,12 @@
 import Foundation
 import RxSwift
 
+#if os(OSX)
+    import AppKit
+#else
+    import UIKit
+#endif
+
 extension UnsplashClient {
 
     public func randomPhoto(size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> Observable<UnsplashImage> {

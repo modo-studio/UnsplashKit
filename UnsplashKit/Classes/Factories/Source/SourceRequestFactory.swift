@@ -2,6 +2,12 @@ import Foundation
 import CarambaKit
 import CoreGraphics
 
+#if os(OSX)
+import AppKit
+#else
+import UIKit
+#endif
+
 public class SourceRequestFactory {
 
     // MARK: - Singleton
