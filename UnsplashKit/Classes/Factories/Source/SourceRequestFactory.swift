@@ -1,5 +1,6 @@
 import Foundation
 import CarambaKit
+import CoreGraphics
 
 public class SourceRequestFactory {
 
