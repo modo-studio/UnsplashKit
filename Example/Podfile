@@ -5,6 +5,6 @@ target 'UnsplashKit_Tests' do
   pod 'UnsplashKit', :path => '../'
 
   pod 'Quick', '~> 0.9'
-  pod 'Nimble', '~> 3.0'
-  pod 'Mockingjay', '~> 1.2.1'
+  pod 'Nimble', '~> 5.0'
+  pod 'Mockingjay', :git => 'git@github.com:kylef/Mockingjay.git', :branch => 'swift-3.0'
 end
