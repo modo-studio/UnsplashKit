@@ -6,8 +6,8 @@ import RxSwift
 @testable import UnsplashKit
 
 class UnsplashClientSharedExample: QuickConfiguration {
-    override class func configure(configuration: Configuration) {
-        sharedExamples("kit-call") { (sharedExampleContext: SharedExampleContext) in
+    override class func configure(_ configuration: Configuration) {
+        sharedExamples("kit-call") { (sharedExampleContext: @escaping SharedExampleContext) in
 
             var observable: Observable<UnsplashImage>!
             var stubbedImage: UIImage!
@@ -20,15 +20,15 @@ class UnsplashClientSharedExample: QuickConfiguration {
 
             it("should return the correct image") {
                 var resultImage: UIImage?
-                waitUntil { done in
-                    _ = observable.subscribeNext { image in
-                        resultImage = image
+                waitUntil(timeout: 10) { done in
+                    _ = observable.subscribe(onNext: { element in
+                        resultImage = element
                         done()
-                    }
+                    })
                 }
                 let stubbedImageData = UIImagePNGRepresentation(stubbedImage)!
                 let resultImageData = UIImagePNGRepresentation(resultImage!)!
-                expect(resultImageData.length).to(equal(stubbedImageData.length))
+                expect(resultImageData.count).to(equal(stubbedImageData.count))
             }
         }
     }
