@@ -321,7 +321,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods (= 1.1.0.rc.3)
+  cocoapods
   danger
   danger-junit
   danger-the_coding_love
@@ -329,4 +329,4 @@ DEPENDENCIES
   versionomy
 
 BUNDLED WITH
-   1.12.5
+   1.13.5
