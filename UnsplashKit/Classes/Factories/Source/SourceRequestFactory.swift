@@ -8,11 +8,11 @@ import AppKit
 import UIKit
 #endif
 
-public class SourceRequestFactory {
+open class SourceRequestFactory {
 
     // MARK: - Singleton
 
-    public static var instance: SourceRequestFactory = SourceRequestFactory()
+    open static var instance: SourceRequestFactory = SourceRequestFactory()
 
     // MARK: - Attributes
 
@@ -30,38 +30,38 @@ public class SourceRequestFactory {
 
     // MARK: - Public
 
-    internal func random(size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+    internal func random(_ size: CGSize? = nil, filter: SourceRequestFilter? = .none) -> URLRequest {
         return self.get(path: "random", size: size, filter: filter)
     }
 
-    internal func search(terms: [String], size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+    internal func search(_ terms: [String], size: CGSize? = nil, filter: SourceRequestFilter? = .none) -> URLRequest {
         return self.get(path: "featured", size: size, filter: filter, search: terms)
     }
 
-    internal func category(category: SourceCategory, size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
-        return self.get(path: "category/\(category.description)", size: size, filter: filter)
+    internal func category(_ category: SourceCategory, size: CGSize? = nil, filter: SourceRequestFilter? = .none) -> URLRequest {
+        return self.get(path: "category/\(category.rawValue)", size: size, filter: filter)
     }
 
-    internal func user(username: String, size: CGSize? = nil, filter: SourceRequestFilter? = .None) -> NSURLRequest {
+    internal func user(_ username: String, size: CGSize? = nil, filter: SourceRequestFilter? = .none) -> URLRequest {
         return self.get(path: "user/\(username)", size: size, filter: filter)
     }
 
-    internal func userLikes(username: String, size: CGSize? = nil) -> NSURLRequest {
+    internal func userLikes(_ username: String, size: CGSize? = nil) -> URLRequest {
         return self.get(path: "user/\(username)/likes", size: size)
     }
 
-    internal func collection(collectionID: String, size: CGSize? = nil) -> NSURLRequest {
+    internal func collection(_ collectionID: String, size: CGSize? = nil) -> URLRequest {
         return self.get(path: "collection/\(collectionID)", size: size)
     }
 
-    internal func photo(photoID: String, size: CGSize? = nil) -> NSURLRequest {
+    internal func photo(_ photoID: String, size: CGSize? = nil) -> URLRequest {
         return self.get(path: "/\(photoID)", size: size)
     }
 
-    private func get(path path: String,
+    fileprivate func get(path: String,
                             size: CGSize? = nil,
-                            filter: SourceRequestFilter? = .None,
-                            search: [String]? = nil) -> NSURLRequest {
+                            filter: SourceRequestFilter? = .none,
+                            search: [String]? = nil) -> URLRequest {
         var fullPath = path
 
         if let size = size {
@@ -69,25 +69,26 @@ public class SourceRequestFactory {
         }
 
         if let filter = filter {
-            fullPath += "/\(filter.description)"
+            fullPath += "/\(filter.rawValue)"
         }
 
-        let request = self.requestBuilder.get(path: fullPath)
+        let request = self.requestBuilder.get(fullPath)
 
         if let terms = search {
-            return request.withParameters(["search" : terms.joinWithSeparator(",")]).build(parameterEncoding: .Custom(searchParameterEncoding), bodyEncoding: .URL)
+            let requestWithParameters = request.with(parameters: ["search" : terms.joined(separator: ",") as AnyObject])
+            return requestWithParameters.build(parameterEncoding: .custom(searchParameterEncoding), bodyEncoding: .url) as URLRequest
         } else {
-            return request.build(bodyEncoding: .URL)
+            return request.build(bodyEncoding: .url) as URLRequest
         }
     }
 }
 
 extension SourceRequestFactory {
-    func searchParameterEncoding(request: NSURLRequest, params: [String: AnyObject]?) -> (NSMutableURLRequest, NSError?) {
+    func searchParameterEncoding(_ request: NSURLRequest, params: [String: AnyObject]?) -> (NSMutableURLRequest, NSError?) {
         let r = request as! NSMutableURLRequest
         if let params = params {
             if let searchTerms = params["search"] as? String {
-                r.URL = NSURL(string: "\(request.URL!.absoluteString)?\(searchTerms)")
+                r.url = URL(string: "\(request.url!.absoluteString)?\(searchTerms)")
             }
         }
         return (request as! NSMutableURLRequest, nil)
