@@ -1,7 +1,7 @@
 import Foundation
 import Quick
 import Nimble
-import Mockingjay
+import OHHTTPStubs
 import RxSwift
 
 @testable import UnsplashKit
@@ -10,31 +10,20 @@ class UnsplashClientCallsSpec: QuickSpec {
     override func spec() {
         
         var subject: UnsplashClient!
-        var requestFactory: SourceRequestFactory!
         var image: UIImage!
-        
-        func builder(request: NSURLRequest) -> Response {
-            let imageData = UIImagePNGRepresentation(image)
-            let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
-            return .Success(response, imageData)
-        }
-        
+
         beforeEach() {
             subject = UnsplashClient()
-            requestFactory = SourceRequestFactory()
-            image = UIImage(contentsOfFile: NSBundle(forClass: self.dynamicType).pathForResource("rocket", ofType: "png")!)
-            
-            self.stub(uri(requestFactory.random().URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.search(["o"]).URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.category(.Nature).URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.user("o").URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.userLikes("o").URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.collection("o").URL!.absoluteString), builder: builder)
-            self.stub(uri(requestFactory.photo("o").URL!.absoluteString), builder: builder)
+            image = UIImage(contentsOfFile: Bundle(for: type(of: self)).path(forResource: "rocket", ofType: "png")!)
+            _ = stub(condition: isHost("source.unsplash.com")) { _ in
+                let stubData = UIImagePNGRepresentation(image)!
+                return OHHTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
+            }
         }
-        
+
         afterEach() {
-            self.removeAllStubs()
+            OHHTTPStubs.removeAllStubs()
+            super.tearDown()
         }
         
         describe("-randomPhoto") {
@@ -42,7 +31,7 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.randomPhoto()
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:fromSearch") {
@@ -50,15 +39,15 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.randomPhoto(fromSearch: ["o"])
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:fromCategory") {
             itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
                 var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromCategory: .Nature)
+                context["observable"] = subject.randomPhoto(fromCategory: .nature)
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:fromUser") {
@@ -66,7 +55,7 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.randomPhoto(fromUser: "o")
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:fromUserLikes") {
@@ -74,7 +63,7 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.randomPhoto(fromUserLikes: "o")
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:fromCollection") {
@@ -82,7 +71,7 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.randomPhoto(fromCollection: "o")
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
         describe("-randomPhoto:identifier") {
@@ -90,7 +79,7 @@ class UnsplashClientCallsSpec: QuickSpec {
                 var context: [String: AnyObject] = [:]
                 context["observable"] = subject.photo("o")
                 context["stubbedImage"] = image
-                return context
+                return context as (NSDictionary)
             })
         }
     }

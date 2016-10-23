@@ -5,8 +5,8 @@ import Nimble
 @testable import UnsplashKit
 
 class SourceRequestFactorySharedExample: QuickConfiguration {
-    override class func configure(configuration: Configuration) {
-        sharedExamples("factory-request") { (sharedExampleContext: SharedExampleContext) in
+    override class func configure(_ configuration: Configuration) {
+        sharedExamples("factory-request") { (sharedExampleContext: @escaping SharedExampleContext) in
             
             var url: String!
             var request: NSURLRequest!
@@ -20,11 +20,11 @@ class SourceRequestFactorySharedExample: QuickConfiguration {
             }
             
             it("should have the correct url") {
-                expect(request.URL?.absoluteString) == url
+                expect(request.url?.absoluteString) == url
             }
             
             it("should have the correct method") {
-                expect(request.HTTPMethod) == method
+                expect(request.httpMethod) == method
             }
         }
     }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UnsplashKit'
-  s.version          = '0.0.23'
+  s.version          = '0.0.24'
   s.summary          = 'Client for Unsplash API'
   s.description      = <<-DESC
 Swift client for unsplash.com API
@@ -13,7 +13,7 @@ Swift client for unsplash.com API
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
 
-  s.dependency 'CarambaKit/Networking', '~> 0.0'
+  s.dependency 'CarambaKit/Networking', '~> 1.0'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
