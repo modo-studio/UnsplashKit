@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UnsplashKit'
-  s.version          = '0.0.23'
+  s.version          = '0.0.24'
   s.summary          = 'Client for Unsplash API'
   s.description      = <<-DESC
 Swift client for unsplash.com API
@@ -8,7 +8,7 @@ Swift client for unsplash.com API
   s.homepage         = 'https://github.com/carambalabs/UnsplashKit'
   s.social_media_url = "https://twitter.com/carambalabs"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Caramba.in' => 'hello@caramba.io' }
+  s.author           = { 'Caramba.io' => 'hello@caramba.io' }
   s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
