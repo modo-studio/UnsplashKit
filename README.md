@@ -113,7 +113,7 @@ UnsplashClient().photo("WLUHO9A_xik") { result in
 If you want to get an image of a specific size you can use the optional `size` parameter in any call.
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height: 200)) { result in
+UnsplashClient().randomPhoto(fromCategory: .nature, size: CGSize(width: 600, height: 200)) { result in
     // handle the result
 }
 ```
