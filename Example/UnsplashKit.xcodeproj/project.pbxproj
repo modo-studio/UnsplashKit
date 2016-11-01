@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E3896801D59E5D30012957F /* UnsplashKit+CallsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */; };
 		1E3896851D59F1660012957F /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E3896841D59F1660012957F /* rocket.png */; };
-		1E3896871D5A130B0012957F /* UnsplashKitSharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3896861D5A130B0012957F /* UnsplashKitSharedExample.swift */; };
 		3939ACE6EA51B6290AF00072 /* Pods_UnsplashKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77D61B7457673A21ED1680B4 /* Pods_UnsplashKit_Tests.framework */; };
 		557257351D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557257341D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift */; };
+		55D33F271DC9039F00304769 /* UnsplashKit+CallsSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */; };
 		607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* SourceRequestFactorySpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E38967F1D59E5D30012957F /* UnsplashKit+CallsSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsplashKit+CallsSpecs.swift"; sourceTree = "<group>"; };
 		1E3896841D59F1660012957F /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rocket.png; sourceTree = "<group>"; };
-		1E3896861D5A130B0012957F /* UnsplashKitSharedExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashKitSharedExample.swift; sourceTree = "<group>"; };
 		2FCAA12970BC16B2B6BCC4BE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		42AAAB0FA2B8FF078AEC3B67 /* Pods-UnsplashKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsplashKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UnsplashKit_Tests/Pods-UnsplashKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		557257341D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceRequestFactorySharedExample.swift; sourceTree = "<group>"; };
@@ -54,7 +52,6 @@
 		557257331D5922D00063B1E5 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				1E3896861D5A130B0012957F /* UnsplashKitSharedExample.swift */,
 				557257341D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift */,
 			);
 			path = Configuration;
@@ -263,10 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E3896801D59E5D30012957F /* UnsplashKit+CallsSpecs.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* SourceRequestFactorySpec.swift in Sources */,
+				55D33F271DC9039F00304769 /* UnsplashKit+CallsSpecs.swift in Sources */,
 				557257351D5922D00063B1E5 /* SourceRequestFactorySharedExample.swift in Sources */,
-				1E3896871D5A130B0012957F /* UnsplashKitSharedExample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

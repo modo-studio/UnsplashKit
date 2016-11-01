@@ -13,7 +13,7 @@ Swift client for unsplash.com API
   s.ios.deployment_target = '8.0'
   s.source_files = 'UnsplashKit/Classes/**/*'
 
-  s.dependency 'CarambaKit/Networking', '~> 1.0'
+  s.dependency 'CarambaKit/Networking', '~> 1.0.0'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'

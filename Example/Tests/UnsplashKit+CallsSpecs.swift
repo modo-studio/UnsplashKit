@@ -1,8 +1,8 @@
 import Foundation
+import Result
 import Quick
 import Nimble
 import OHHTTPStubs
-import RxSwift
 
 @testable import UnsplashKit
 
@@ -10,14 +10,14 @@ class UnsplashClientCallsSpec: QuickSpec {
     override func spec() {
         
         var subject: UnsplashClient!
-        var image: UIImage!
+        var imageData: Data!
 
         beforeEach() {
             subject = UnsplashClient()
-            image = UIImage(contentsOfFile: Bundle(for: type(of: self)).path(forResource: "rocket", ofType: "png")!)
+            let image = UIImage(contentsOfFile: Bundle(for: type(of: self)).path(forResource: "rocket", ofType: "png")!)!
+            imageData = UIImagePNGRepresentation(image)
             _ = stub(condition: isHost("source.unsplash.com")) { _ in
-                let stubData = UIImagePNGRepresentation(image)!
-                return OHHTTPStubsResponse(data: stubData, statusCode:200, headers:nil)
+                return OHHTTPStubsResponse(data: imageData, statusCode:200, headers:nil)
             }
         }
 
@@ -27,60 +27,88 @@ class UnsplashClientCallsSpec: QuickSpec {
         }
         
         describe("-randomPhoto") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto()
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:fromSearch") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromSearch: ["o"])
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(fromSearch: ["o"], completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:fromCategory") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromCategory: .nature)
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(fromCategory: .nature, completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:fromUser") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromUser: "o")
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(fromUser: "o", completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:fromUserLikes") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromUserLikes: "o")
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(fromUserLikes: "o", completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:fromCollection") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.randomPhoto(fromCollection: "o")
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.randomPhoto(fromCollection: "o", completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
         describe("-randomPhoto:identifier") {
-            itBehavesLike("kit-call", sharedExampleContext: { () -> (NSDictionary) in
-                var context: [String: AnyObject] = [:]
-                context["observable"] = subject.photo("o")
-                context["stubbedImage"] = image
-                return context as (NSDictionary)
-            })
+            it("returns a valid photo") {
+                var resultImageData: Data!
+                waitUntil(timeout: 5) { done in
+                    subject.photo("o", completion: { result in
+                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        done()
+                    })
+                }
+                expect(resultImageData).to(equal(imageData))
+            }
         }
     }
 }

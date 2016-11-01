@@ -1,5 +1,4 @@
 import Foundation
-import RxSwift
 import CarambaKit
 
 open class UnsplashClient: HttpClient<UnsplashImage> {
