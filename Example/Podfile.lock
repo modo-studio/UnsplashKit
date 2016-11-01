@@ -1,35 +1,32 @@
 PODS:
-  - CarambaKit/Foundation (1.0.3):
-    - RxCocoa (~> 3.0.0-beta.1)
-    - RxSwift (~> 3.0.0-beta.1)
+  - CarambaKit/Foundation (1.0.6):
+    - Result (~> 3.0)
     - SwiftyJSON (~> 3.0)
-  - CarambaKit/Networking (1.0.3):
+  - CarambaKit/Networking (1.0.6):
     - CarambaKit/Foundation
     - KeychainSwift (~> 6.0)
   - KeychainSwift (6.0.2)
-  - Nimble (5.0.0)
-  - OHHTTPStubs (5.2.1):
-    - OHHTTPStubs/Default (= 5.2.1)
-  - OHHTTPStubs/Core (5.2.1)
-  - OHHTTPStubs/Default (5.2.1):
+  - Nimble (5.1.1)
+  - OHHTTPStubs (5.2.2):
+    - OHHTTPStubs/Default (= 5.2.2)
+  - OHHTTPStubs/Core (5.2.2)
+  - OHHTTPStubs/Default (5.2.2):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (5.2.1):
+  - OHHTTPStubs/JSON (5.2.2):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (5.2.1):
+  - OHHTTPStubs/NSURLSession (5.2.2):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (5.2.1)
-  - OHHTTPStubs/Swift (5.2.1):
+  - OHHTTPStubs/OHPathHelpers (5.2.2)
+  - OHHTTPStubs/Swift (5.2.2):
     - OHHTTPStubs/Core
   - Quick (0.10.0)
-  - RxCocoa (3.0.0-rc.1):
-    - RxSwift (~> 3.0.0-rc.1)
-  - RxSwift (3.0.0-rc.1)
+  - Result (3.0.0)
   - SwiftyJSON (3.1.1)
-  - UnsplashKit (0.0.23):
-    - CarambaKit/Networking (~> 1.0)
+  - UnsplashKit (0.0.24):
+    - CarambaKit/Networking (~> 1.0.0)
 
 DEPENDENCIES:
   - Nimble (~> 5.0)
@@ -43,16 +40,15 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CarambaKit: 3784ee3807a3f420e3ff4c53f0123327dee18ace
+  CarambaKit: 54cf14e7dd321f0321db8eadac1daca71b315df0
   KeychainSwift: a261364334000afa8fab0894390d5d00dd226d4c
-  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
-  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
+  OHHTTPStubs: 34d9d0994e64fcf8552dbfade5ce82ada913ee31
   Quick: 5d290df1c69d5ee2f0729956dcf0fd9a30447eaa
-  RxCocoa: e72a074a7f38896ec0382d096df5f58df10115c7
-  RxSwift: d7a3819dd71789c473e3cbf1a0c02d58b2692739
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
-  UnsplashKit: 1185fe89595277655bd15615201a0559d1822bea
+  UnsplashKit: 790234686301a4d11d99c5081341992a12a4421e
 
-PODFILE CHECKSUM: d833c0a465d3d7381ae11bbe30680d97a14811a5
+PODFILE CHECKSUM: feaa04f61ea4e78e851e6503768b584fd08bf3eb
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1
