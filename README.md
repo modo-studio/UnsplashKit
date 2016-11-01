@@ -4,11 +4,11 @@
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UnsplashKit.svg)](https://img.shields.io/cocoapods/v/UnsplashKit.svg)
 [![codecov](https://codecov.io/gh/carambalabs/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
 
-Unsplash API client written in Swift using RxSwift.
+Unsplash API client written in Swift.
 
 [Unsplash](https://unsplash.com/) offers 2 APIs:
-- [JSON API](https://unsplash.com/documentation) (5000 requests / hour)
 - [Source API](https://source.unsplash.com/) (unlimited requests)
+- [JSON API](https://unsplash.com/documentation) (5000 requests / hour)
 
 JSON API is in progress and will be available soon in this library.
 
@@ -22,19 +22,38 @@ import UnsplashKit
 
 Source API allows you to get an Unsplash image in different ways.
 
+#### Results
+
+All the calls return the image through a completion block that returns a `Result<Image, Error>`.
+```swift
+call() { result in
+  switch result {
+    case .success(let image): //handle image
+    case .failure(let error): //handle error
+  }
+}
+```
+
+You can also ignore the error and get only the result using
+```swift
+call() { result in
+  let image = result.value
+}
+```
+
 #### Random photo
 
 ```swift
-UnsplashClient().randomPhoto().subscribe(onNext: { image in
-  // handle the image
+UnsplashClient().randomPhoto() { result in
+  // handle the result
 }
 ```
 
 #### Random from a category
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .Nature).subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(fromCategory: .Nature) { result in
+    // handle the result
 }
 ```
 
@@ -52,15 +71,15 @@ Unsplash offers a list of predefined categories. You can ask for a photo from an
 #### Random from a specific user
 
 ```swift
-UnsplashClient().randomPhoto(fromUser: "mkwlsn").subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(fromUser: "carambalabs") { result in
+    // handle the result
 }
 ```
 
 #### Random from a user's likes
 
 ```swift
-UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn").subscribe(onNext: { image in
+UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn") { result in
     // handle the image
 }
 ```
@@ -68,24 +87,24 @@ UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn").subscribe(onNext: { image 
 #### Random from a collection
 
 ```swift
-UnsplashClient().randomPhoto(fromCollection: "176316").subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(fromCollection: "176316") { result in
+    // handle the result
 }
 ```
 
 #### Random search term
 
 ```swift
-UnsplashClient().randomPhoto(fromSearch: ["nature", "water"]).subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(fromSearch: ["nature", "water"]) { result in
+    // handle the result
 }
 ```
 
 #### Specific photo
 
 ```swift
-UnsplashClient().photo("WLUHO9A_xik").subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().photo("WLUHO9A_xik") { result in
+    // handle the result
 }
 ```
 
@@ -94,8 +113,8 @@ UnsplashClient().photo("WLUHO9A_xik").subscribe(onNext: { image in
 If you want to get an image of a specific size you can use the optional `size` parameter in any call.
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height: 200)).subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, height: 200)) { result in
+    // handle the result
 }
 ```
 
@@ -104,24 +123,9 @@ UnsplashClient().randomPhoto(fromCategory: .Nature, size: CGSize(width: 600, hei
 The calls `random`, `search`, `category` and `user` can also be limited to only updating once per day or week. To do so, simply use the optional `filter` parameter.
 
 ```swift
-UnsplashClient().randomPhoto(filter: .Daily).subscribe(onNext: { image in
-    // handle the image
+UnsplashClient().randomPhoto(filter: .Daily) { result in
+    // handle the result
 }
-```
-
-### Handling Errors
-
-To handle possible errors subscribe to the Error handler.
-
-```swift
-UnsplashClient().randomPhoto()
-  .doOnNext{ image in
-    // handle the image
-  }
-  .doOnError { error in
-    // handle the error
-  }
-  .subscribe()
 ```
 
 ## Requirements
