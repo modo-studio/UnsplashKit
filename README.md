@@ -52,7 +52,7 @@ UnsplashClient().randomPhoto() { result in
 #### Random from a category
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .Nature) { result in
+UnsplashClient().randomPhoto(fromCategory: .nature) { result in
     // handle the result
 }
 ```
@@ -60,12 +60,12 @@ UnsplashClient().randomPhoto(fromCategory: .Nature) { result in
 Unsplash offers a list of predefined categories. You can ask for a photo from any of these categories.
 
 ```swift
-.Buildings
-.Food
-.Nature
-.People
-.Technology
-.Objects
+.buildings
+.food
+.nature
+.people
+.technology
+.objects
 ```
 
 #### Random from a specific user
@@ -123,7 +123,7 @@ UnsplashClient().randomPhoto(fromCategory: .nature, size: CGSize(width: 600, hei
 The calls `random`, `search`, `category` and `user` can also be limited to only updating once per day or week. To do so, simply use the optional `filter` parameter.
 
 ```swift
-UnsplashClient().randomPhoto(filter: .Daily) { result in
+UnsplashClient().randomPhoto(filter: .daily) { result in
     // handle the result
 }
 ```
