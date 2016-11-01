@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UnsplashKit'
-  s.version          = '0.0.24'
+  s.version          = '1.0.0'
   s.summary          = 'Client for Unsplash API'
   s.description      = <<-DESC
 Swift client for unsplash.com API
