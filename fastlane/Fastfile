@@ -16,7 +16,8 @@ end
 
 lane :push do
   ensure_git_branch
-  version = version_bump_podspec(path: "UnsplashKit.podspec")
+  release_version = prompt(text: "📮  Please provide a version number for the new Release: ")
+  version = version_bump_podspec(path: "UnsplashKit.podspec", version_number: release_version)
   git_commit(path: ["./UnsplashKit.podspec", "./Example/Podfile.lock"], message: "#{COMMIT_MESSAGE} #{version}")
   changelog = changelog_from_git_commits
   github_release = set_github_release(
