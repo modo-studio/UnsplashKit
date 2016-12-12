@@ -6,7 +6,7 @@ import CoreLocation
 public struct Photo: Unboxable {
 
     // MARK: - Attributes
-    
+
     public let id: String
 
     // MARK: - Unboxable
@@ -22,13 +22,13 @@ public struct Photo: Unboxable {
 // MARK: - Resources
 
 public extension Photo {
-    
+
     public static var photos: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
         var mutable: URLComponents = components
         mutable.path = "/me"
         return URLRequest(url: mutable.url!)
     }
-    
+
     public static func photos(page: Int = 1,
                               perPage: Int = 10,
                               orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -43,10 +43,9 @@ public extension Photo {
             var request = URLRequest(url: mutable.url!)
             request.httpMethod = "GET"
             return request
-            
         }
     }
-    
+
     public static func curated(page: Int = 1,
                               perPage: Int = 10,
                               orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -61,10 +60,9 @@ public extension Photo {
             var request = URLRequest(url: mutable.url!)
             request.httpMethod = "GET"
             return request
-            
         }
     }
-    
+
     public static func photo(id: String,
                             size: CGSize? = nil,
                             rect: CGRect? = nil) -> Resource<Photo> {
@@ -83,10 +81,9 @@ public extension Photo {
             var request = URLRequest(url: mutable.url!)
             request.httpMethod = "GET"
             return request
-            
         }
     }
-    
+
     public static func random(categories: [String] = [],
                               collections: [String] = [],
                               featured: Bool? = nil,
@@ -116,10 +113,9 @@ public extension Photo {
             var request = URLRequest(url: mutable.url!)
             request.httpMethod = "GET"
             return request
-            
         }
     }
-    
+
     public static func random(count: Int,
                               categories: [String] = [],
                               collections: [String] = [],
@@ -151,10 +147,9 @@ public extension Photo {
             var request = URLRequest(url: mutable.url!)
             request.httpMethod = "GET"
             return request
-            
         }
     }
-    
+
     public static func stats(id: String) -> Resource<PhotoStats> {
         return Resource { (components: URLComponents) -> URLRequest in
             var mutable: URLComponents = components
@@ -164,7 +159,7 @@ public extension Photo {
             return request
         }
     }
-    
+
     public static func downloadLink(id: String) -> Resource<String> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
@@ -176,7 +171,7 @@ public extension Photo {
             return try Unboxer(data: data).unbox(key: "url")
         })
     }
-    
+
     public static func update(id: String,
                               locationPosition: CLLocation? = nil,
                               locationName: String? = nil,
@@ -233,7 +228,7 @@ public extension Photo {
             return request
         }
     }
-    
+
     public static func like(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
@@ -245,7 +240,7 @@ public extension Photo {
             return ()
         })
     }
-    
+
     public static func unlike(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components

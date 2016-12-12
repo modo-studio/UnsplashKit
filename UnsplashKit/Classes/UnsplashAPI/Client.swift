@@ -11,13 +11,13 @@ import HTTPStatusCodes
 /// - clientError: HTTP client error.
 /// - serverError: HTTP server error.
 public enum UnsplashError: Error, CustomStringConvertible {
-    
+
     case urlSession(NSError)
     case noData
     case parse(NSError)
     case clientError(HTTPStatusCode, [String])
     case serverError(HTTPStatusCode, [String])
-    
+
     public var description: String {
         switch self {
         case .urlSession(let error):
@@ -32,30 +32,30 @@ public enum UnsplashError: Error, CustomStringConvertible {
             return "Server error \(statusCode). Errors: \(errors)"
         }
     }
-    
+
 }
 
 public final class UnsplashClient {
-    
+
     // MARK: - Constants
-    
+
     fileprivate struct Constants {
         static var location: String = "https://api.unsplash.com/"
     }
-    
+
     // MARK: - Attributes
-    
+
     /// API location.
     private let location: URL
-    
+
     /// URL session.
     private let session: URLSession
-    
+
     /// Extra headers to be added in every request.
     private let headers: (URLRequest) -> [String: String]
-    
+
     // MARK: - Init
-    
+
     /// Initializes the Unsplash Client.
     public init(location: URL = URL(string: UnsplashClient.Constants.location)!,
                 session: URLSession = URLSession.shared,
@@ -64,7 +64,7 @@ public final class UnsplashClient {
         self.session = session
         self.headers = headers
     }
-    
+
     /// Executes the resource agains the API.
     ///
     /// - Parameters:
@@ -118,11 +118,11 @@ public final class UnsplashClient {
 // MARK: - Extension (HeadersProvider)
 
 public extension UnsplashClient {
-    
+
     convenience public init(location: URL = URL(string: UnsplashClient.Constants.location)!,
                             session: URLSession = URLSession.shared,
                             headersProvider: HeadersProvider) {
         self.init(location: location, session: session, headers: headersProvider.headers)
     }
-    
+
 }

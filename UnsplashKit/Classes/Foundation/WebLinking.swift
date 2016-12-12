@@ -145,7 +145,7 @@ func +<K,V>(lhs: [K:V], rhs: [K:V]) -> [K:V] {
 }
 
 /// LHS contains all the keys and values from RHS
-func ~=(lhs: [String: String], rhs: [String: String]) -> Bool {
+func ~= (lhs: [String: String], rhs: [String: String]) -> Bool {
   for (key, value) in rhs {
     if lhs[key] != value {
       return false

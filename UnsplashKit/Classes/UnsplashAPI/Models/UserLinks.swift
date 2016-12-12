@@ -3,9 +3,9 @@ import Unbox
 
 /// Unsplash Links
 public struct UserLinks: Unboxable {
-    
+
     // MARK: - Attributes
-    
+
     public let this: String
     public let html: String
     public let photos: String
@@ -13,9 +13,9 @@ public struct UserLinks: Unboxable {
     public let portfolio: String
     public let followers: String?
     public let following: String?
-    
+
     // MARK: - Unboxable
-    
+
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
         self.this = try unboxer.unbox(key: "self")
@@ -27,5 +27,5 @@ public struct UserLinks: Unboxable {
         self.following = unboxer.unbox(key: "following")
 
     }
-    
+
 }

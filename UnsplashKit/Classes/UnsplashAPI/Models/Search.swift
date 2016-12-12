@@ -2,8 +2,7 @@ import Foundation
 
 /// Resources
 public struct Search {
-    
-    
+
     public static func photos(query: String,
                               page: Int = 1,
                               perPage: Int = 10) -> Resource<[ShortPhoto]> {
@@ -20,7 +19,7 @@ public struct Search {
             return request
         }
     }
-    
+
     public static func collections(query: String,
                                    page: Int = 1,
                                    perPage: Int = 10) -> Resource<[Collection]> {
@@ -37,7 +36,7 @@ public struct Search {
             return request
         }
     }
-    
+
     public static func users(query: String,
                              page: Int = 1,
                              perPage: Int = 10) -> Resource<[User]> {
@@ -54,5 +53,5 @@ public struct Search {
             return request
         }
     }
-    
+
 }
