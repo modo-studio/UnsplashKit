@@ -24,6 +24,7 @@ Swift client for unsplash.com API
     ss.dependency 'HTTPStatusCodes', '~> 3.1'
     ss.dependency 'Unbox', '~> 2.3'
     ss.dependency 'Result', '~> 3.1'
+    ss.frameworks = ["CoreLocation"]
   end
 
   s.subspec "API" do |ss|

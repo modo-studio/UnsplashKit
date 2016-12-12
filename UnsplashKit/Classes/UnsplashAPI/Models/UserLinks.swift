@@ -2,7 +2,7 @@ import Foundation
 import Unbox
 
 /// Unsplash Links
-public struct Links: Unboxable {
+public struct UserLinks: Unboxable {
     
     // MARK: - Attributes
     
@@ -11,6 +11,8 @@ public struct Links: Unboxable {
     public let photos: String
     public let likes: String
     public let portfolio: String
+    public let followers: String?
+    public let following: String?
     
     // MARK: - Unboxable
     
@@ -21,6 +23,9 @@ public struct Links: Unboxable {
         self.photos = try unboxer.unbox(key: "photos")
         self.likes = try unboxer.unbox(key: "likes")
         self.portfolio = try unboxer.unbox(key: "portfolio")
+        self.followers = unboxer.unbox(key: "followers")
+        self.following = unboxer.unbox(key: "following")
+
     }
     
 }
