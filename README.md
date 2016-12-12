@@ -38,7 +38,6 @@ import UnsplashKit
 :warning: **Not fully available yet**
 
 #### Checklist
-- [ ] Collections endpoints.
 - [ ] Define models.
 - [ ] Test all endpoints.
 - [ ] Tests

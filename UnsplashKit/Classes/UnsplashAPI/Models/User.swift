@@ -3,9 +3,9 @@ import Unbox
 
 /// Unsplash User
 public struct User: Unboxable {
-
+    
     // MARK: - Attributes
-
+    
     public let id: String
     public let username: String
     public let firstName: String
@@ -22,9 +22,9 @@ public struct User: Unboxable {
     public let instagramUsername: String?
     public let email: String
     public let links: UserLinks
-
+    
     // MARK: - Unboxable
-
+    
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
@@ -50,13 +50,13 @@ public struct User: Unboxable {
 // MARK: - Resources
 
 public extension User {
-
+    
     public static var me: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
         var mutable: URLComponents = components
         mutable.path = "/me"
         return URLRequest(url: mutable.url!)
     }
-
+    
     public static func updateMe(username: String? = nil,
                                 firstName: String? = nil,
                                 lastName: String? = nil,
@@ -83,9 +83,9 @@ public extension User {
             return request
         }
     }
-
-    public static func user(username: String,
-                            size: CGSize? = nil) -> Resource<User> {
+    
+    public static func get(username: String,
+                           size: CGSize? = nil) -> Resource<User> {
         var queryItems: [URLQueryItem] = []
         if let size = size {
             queryItems.append(URLQueryItem(name: "w", value: "\(size.width)"))
@@ -100,7 +100,7 @@ public extension User {
             return request
         }
     }
-
+    
     public static func portfolio(username: String) -> Resource<String> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
@@ -112,7 +112,7 @@ public extension User {
             return try Unboxer(data: data).unbox(key: "url")
         })
     }
-
+    
     public static func photos(username: String,
                               page: Int = 1,
                               perPage: Int = 10,
@@ -130,7 +130,7 @@ public extension User {
             return request
         }
     }
-
+    
     public static func likes(username: String,
                              page: Int = 1,
                              perPage: Int = 10,
@@ -148,7 +148,7 @@ public extension User {
             return request
         }
     }
-
+    
     public static func collections(username: String,
                                    page: Int = 1,
                                    perPage: Int = 10,

@@ -3,6 +3,7 @@ disabled_rules:
   - comma
   - control_statement
   - force_cast
+  - trailing_whitespace
 included:
   - ../UnsplashKit
 excluded:
