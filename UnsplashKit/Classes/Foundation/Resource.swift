@@ -4,15 +4,15 @@ import Unbox
 // MARK: - ResourceError
 
 internal enum ResourceError: Error, CustomStringConvertible {
-    
+
     case invalidData
-    
+
     var description: String {
         switch self {
         case .invalidData: return "Couldn't parse the data"
         }
     }
-    
+
 }
 
 
@@ -20,16 +20,15 @@ internal enum ResourceError: Error, CustomStringConvertible {
 /// It includes information about how to create the reqeuest
 /// and how to parse the repsonse.
 public struct Resource<A> {
-    
+
     /// Closure that returns a request from the given components.
     internal var request: (URLComponents) -> URLRequest
-    
+
     /// Closure that specifies how to parse the response.
     internal var parse: (Data, HTTPURLResponse) throws -> A
-    
-    
+
     // MARK: - Init
-    
+
     /// Initializes the resource with its attributes.
     ///
     /// - Parameters:
@@ -40,7 +39,7 @@ public struct Resource<A> {
         self.request = request
         self.parse = parse
     }
-    
+
     /// Initializes the resource with the request closure and a JSON parser.
     ///
     /// - Parameters:
@@ -56,7 +55,7 @@ public struct Resource<A> {
             return try jsonParse(json, input.1)
         }
     }
-    
+
 }
 
 // MARK: - Resource Extension (Unboxable)
@@ -72,14 +71,14 @@ extension Resource where A: Unboxable {
             return try unbox(data: data)
         })
     }
-    
+
 }
 
 
 // MARK: - Resource Extension (Array<Unboxable>)
 
 extension Resource where A: Sequence, A.Iterator.Element: Unboxable {
-    
+
     /// Initializes the resource with a Array<Unboxable> type.
     ///
     /// - Parameter request: request creation closure.
@@ -89,5 +88,5 @@ extension Resource where A: Sequence, A.Iterator.Element: Unboxable {
             return parsed as! A
         })
     }
-    
+
 }

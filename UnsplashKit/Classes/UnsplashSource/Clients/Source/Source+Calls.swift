@@ -1,4 +1,5 @@
 import Foundation
+import CarambaKit
 import Result
 
 #if os(OSX)
@@ -7,9 +8,9 @@ import Result
     import UIKit
 #endif
 
-extension UnsplashSource {
+public typealias ImageCompletion = (Result<UnsplashImage, NSError>) -> Void
 
-    public typealias ImageCompletion = (Result<UnsplashImage, NSError>) -> Void
+extension UnsplashSource {
 
     public func randomPhoto(_ size: CGSize? = nil, filter: SourceRequestFilter? = .none, completion: @escaping ImageCompletion) {
         self.request(request: self.requestFactory.random(size, filter: filter), completion: completion)

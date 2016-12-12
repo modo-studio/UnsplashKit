@@ -1,7 +1,7 @@
 import Foundation
 
 /// API response that includes the pagination links.
-public struct UnsplashResponse<A> {
+public struct Response<A> {
     
     // MARK: - Attributes
     
@@ -33,7 +33,7 @@ public struct UnsplashResponse<A> {
     /// - Parameters:
     ///   - object: object included in the response.
     ///   - response: http url response.
-    init(object: A, response: HTTPURLResponse) {
+    internal init(object: A, response: HTTPURLResponse) {
         self.object = object
         self.firstLink = response.findLink(relation: "first")
         self.prevLink = response.findLink(relation: "prev")

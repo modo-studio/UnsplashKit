@@ -8,15 +8,32 @@ Unsplash API client written in Swift.
 
 [Unsplash](https://unsplash.com/) offers 2 APIs:
 - [Source API](https://source.unsplash.com/) (unlimited requests)
+- [Official API](https://unsplash.com/documentation)
 - [JSON API](https://unsplash.com/documentation) (5000 requests / hour)
 
 JSON API is in progress and will be available soon in this library.
+
+## Requirements
+
+* iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
+* Xcode 8.0+
+
+## Installation
+
+You can use [CocoaPods](https://cocoapods.org) to integrate the library with your project.
+
+```ruby
+pod "UnsplashKit/API" # Official API
+pod "UnsplashKit/Source" # Source API
+```
 
 ## Usage
 
 ```swift
 import UnsplashKit
 ```
+
+### Official API
 
 ### Source API
 
@@ -126,19 +143,6 @@ The calls `random`, `search`, `category` and `user` can also be limited to only 
 UnsplashClient().randomPhoto(filter: .daily) { result in
     // handle the result
 }
-```
-
-## Requirements
-
-* iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
-* Xcode 7.3+
-
-## Installation
-
-To install it, simply add the following line to your Podfile:
-
-```ruby
-pod "UnsplashKit"
 ```
 
 ## About

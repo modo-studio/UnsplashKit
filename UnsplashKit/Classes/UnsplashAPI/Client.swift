@@ -35,8 +35,7 @@ public enum UnsplashError: Error, CustomStringConvertible {
     
 }
 
-/// Unsplash Client
-public class UnsplashClient {
+public final class UnsplashClient {
     
     // MARK: - Constants
     
@@ -56,7 +55,7 @@ public class UnsplashClient {
     private let headers: (URLRequest) -> [String: String]
     
     // MARK: - Init
-
+    
     /// Initializes the Unsplash Client.
     public init(location: URL = URL(string: UnsplashClient.Constants.location)!,
                 session: URLSession = URLSession.shared,
@@ -72,7 +71,7 @@ public class UnsplashClient {
     ///   - resource: resource to be executed.
     ///   - completion: completion closure.
     public func execute<A>(resource: Resource<A>,
-                        completion: @escaping (Result<UnsplashResponse<A>, UnsplashError>) -> ()) {
+                        completion: @escaping (Result<Response<A>, UnsplashError>) -> ()) {
         let components: URLComponents = URLComponents(url: self.location,
                                                       resolvingAgainstBaseURL: true)!
         var request = resource.request(components)
@@ -85,14 +84,13 @@ public class UnsplashClient {
         session.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(.urlSession(error as NSError)))
-                
             } else if let response = response, let data = data {
                 if let response = response as? HTTPURLResponse, let code = HTTPStatusCode(HTTPResponse: response) {
                     if code.isClientError || code.isServerError {
                         var errors: [String] = []
                         if let json = try? JSONSerialization.jsonObject(with: data, options: []),
                             let dictionary = json as? [String: Any],
-                            let _errors = dictionary["errors"] as? [String]{
+                            let _errors = dictionary["errors"] as? [String] {
                             errors = _errors
                         }
                         if code.isClientError {
@@ -105,7 +103,7 @@ public class UnsplashClient {
                 }
                 do {
                     let parsed = try resource.parse(data, response as! HTTPURLResponse)
-                    let response = UnsplashResponse(object: parsed, response: response as! HTTPURLResponse)
+                    let response = Response(object: parsed, response: response as! HTTPURLResponse)
                     completion(.success(response))
                 } catch {
                     completion(.failure(.parse(error as NSError)))
@@ -113,7 +111,7 @@ public class UnsplashClient {
             } else {
                 completion(.failure(.noData))
             }
-        }.resume()
+            }.resume()
     }
 }
 
@@ -122,8 +120,8 @@ public class UnsplashClient {
 public extension UnsplashClient {
     
     convenience public init(location: URL = URL(string: UnsplashClient.Constants.location)!,
-                session: URLSession = URLSession.shared,
-                headersProvider: HeadersProvider) {
+                            session: URLSession = URLSession.shared,
+                            headersProvider: HeadersProvider) {
         self.init(location: location, session: session, headers: headersProvider.headers)
     }
     
