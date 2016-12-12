@@ -6,14 +6,14 @@ import OHHTTPStubs
 
 @testable import UnsplashKit
 
-class UnsplashClientCallsSpec: QuickSpec {
+class UnsplashSourceCallsSpec: QuickSpec {
     override func spec() {
         
-        var subject: UnsplashClient!
+        var subject: UnsplashSource!
         var imageData: Data!
 
         beforeEach() {
-            subject = UnsplashClient()
+            subject = UnsplashSource()
             let image = UIImage(contentsOfFile: Bundle(for: type(of: self)).path(forResource: "rocket", ofType: "png")!)!
             imageData = UIImagePNGRepresentation(image)
             _ = stub(condition: isHost("source.unsplash.com")) { _ in

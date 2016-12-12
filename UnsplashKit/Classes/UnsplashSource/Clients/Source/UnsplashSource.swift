@@ -1,7 +1,7 @@
 import Foundation
 import CarambaKit
 
-open class UnsplashClient: HttpClient<UnsplashImage> {
+open class UnsplashSource: HttpClient<UnsplashImage> {
 
     // MARK: - Attributes
 

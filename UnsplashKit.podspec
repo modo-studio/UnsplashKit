@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UnsplashKit'
-  s.version          = '1.0.0'
+  s.version          = '2.0.0'
   s.summary          = 'Client for Unsplash API'
   s.description      = <<-DESC
 Swift client for unsplash.com API
@@ -10,11 +10,28 @@ Swift client for unsplash.com API
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Caramba.io' => 'hello@caramba.io' }
   s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '8.0'
-  s.source_files = 'UnsplashKit/Classes/**/*'
 
-  s.dependency 'CarambaKit/Networking', '~> 1.0.0'
+  s.default_subspec = 'Source'
 
+  s.subspec "Foundation" do |ss|
+    ss.source_files = 'UnsplashKit/Classes/Foundation/**/*'
+  end
+
+  s.subspec "Source" do |ss|
+    ss.dependency 'CarambaKit/Networking', '~> 1.0.0'
+    ss.source_files = 'UnsplashKit/Classes/UnsplashSource/**/*'
+    ss.dependency 'UnsplashKit/Foundation'
+    ss.dependency 'HTTPStatusCodes', '~> 3.1'
+    ss.dependency 'Unbox', '~> 2.3'
+    ss.dependency 'Result', '~> 3.1'
+  end
+
+  s.subspec "API" do |ss|
+    ss.source_files = 'UnsplashKit/Classes/UnsplashAPI/**/*'
+    ss.dependency 'UnsplashKit/Foundation'
+  end
+
+  # Targets
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'

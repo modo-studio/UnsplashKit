@@ -25,5 +25,5 @@ type_name:
     error: 50
 variable_name:
   min_length:
-    error: 3
+    error: 1
 reporter: "xcode"

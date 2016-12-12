@@ -7,7 +7,7 @@ import Result
     import UIKit
 #endif
 
-extension UnsplashClient {
+extension UnsplashSource {
 
     public typealias ImageCompletion = (Result<UnsplashImage, NSError>) -> Void
 
