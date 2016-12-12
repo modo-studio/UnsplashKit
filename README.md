@@ -35,6 +35,14 @@ import UnsplashKit
 
 ### Official API
 
+:warning: **Not fully available yet**
+
+#### Checklist
+- [ ] Collections endpoints.
+- [ ] Define models.
+- [ ] Test all endpoints.
+- [ ] Tests
+
 ### Source API
 
 Source API allows you to get an Unsplash image in different ways.
