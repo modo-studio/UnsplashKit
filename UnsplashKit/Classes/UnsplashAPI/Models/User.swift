@@ -22,7 +22,7 @@ public struct User: Unboxable {
     public let lastName: String?
     
     /// User portfolio url.
-    public let portfolioUrl: String
+    public let portfolioUrl: String?
     
     /// User biography.
     public let bio: String?
@@ -66,7 +66,7 @@ public struct User: Unboxable {
         self.username = try unboxer.unbox(key: "username")
         self.firstName = try unboxer.unbox(key: "first_name")
         self.lastName = unboxer.unbox(key: "last_name")
-        self.portfolioUrl = try unboxer.unbox(key: "portfolio_url")
+        self.portfolioUrl = unboxer.unbox(key: "portfolio_url")
         self.bio = unboxer.unbox(key: "bio")
         self.location = unboxer.unbox(key: "location")
         self.totalLikes = try unboxer.unbox(key: "total_likes")

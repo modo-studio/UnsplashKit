@@ -35,10 +35,10 @@ Models expose the requests that can be executed as resources. A resource contain
 //: - Get user `User.get`.
 //: - Get user portfolio `User.portfolio`.
 
-client.execute(resource: Photo.like(id: "1SwxVPbpAOE")) { (result) in
+client.execute(resource: Search.collections(query: "a")) { (result) in
     print(result)
     if let value = result.value?.object {
-        dump(value)
+        dump(value[0])
     }
 }
 
