@@ -64,12 +64,13 @@ public struct Photo: Unboxable {
 
 public extension Photo {
     
-    public static var photos: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
-        var mutable: URLComponents = components
-        mutable.path = "/me"
-        return URLRequest(url: mutable.url!)
-    }
-    
+    /// Resource for fetching photos.
+    ///
+    /// - Parameters:
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items per page.
+    ///   - orderBy: order by value.
+    /// - Returns: resource for fetching photos.
     public static func list(page: Int = 1,
                             perPage: Int = 10,
                             orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -87,6 +88,13 @@ public extension Photo {
         }
     }
     
+    /// Resource for fetching curated photos.
+    ///
+    /// - Parameters:
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items per page.
+    ///   - orderBy: order by value.
+    /// - Returns: resource for fetching the curated photos.
     public static func curated(page: Int = 1,
                                perPage: Int = 10,
                                orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -104,6 +112,13 @@ public extension Photo {
         }
     }
     
+    /// Resource for fetching a photo with a given id.
+    ///
+    /// - Parameters:
+    ///   - id: photo identifier.
+    ///   - size: photo size.
+    ///   - rect: photo rect.
+    /// - Returns: resource for fetching a photo.
     public static func get(id: String,
                            size: CGSize? = nil,
                            rect: CGRect? = nil) -> Resource<Photo> {
@@ -125,6 +140,17 @@ public extension Photo {
         }
     }
     
+    
+    /// Resource for fetching a random photo.
+    ///
+    /// - Parameters:
+    ///   - categories: categories used for filtering.
+    ///   - collections: collections used for filtering.
+    ///   - featured: featured used for filtering.
+    ///   - username: username used for filtering.
+    ///   - size: size of the photos.
+    ///   - orientation: orientation filtering.
+    /// - Returns: resource for fetching the photos.
     public static func random(categories: [String] = [],
                               collections: [String] = [],
                               featured: Bool? = nil,
@@ -157,6 +183,17 @@ public extension Photo {
         }
     }
     
+    /// Resource for fetching random photos.
+    ///
+    /// - Parameters:
+    ///   - count: number of photos to be fetched.
+    ///   - categories: categories used for filtering.
+    ///   - collections: collections used for filtering.
+    ///   - featured: featured used for filtering.
+    ///   - username: username used for filtering.
+    ///   - size: size of the photos.
+    ///   - orientation: orientation used for filtering.
+    /// - Returns: resource for fetching the photos.
     public static func random(count: Int,
                               categories: [String] = [],
                               collections: [String] = [],
@@ -191,6 +228,10 @@ public extension Photo {
         }
     }
     
+    /// Resource for fetching a photo stats.
+    ///
+    /// - Parameter id: photo identifier.
+    /// - Returns: resource for fetching the stats.
     public static func stats(id: String) -> Resource<PhotoStats> {
         return Resource { (components: URLComponents) -> URLRequest in
             var mutable: URLComponents = components
@@ -201,6 +242,10 @@ public extension Photo {
         }
     }
     
+    /// Resource for fetching a photo download link.
+    ///
+    /// - Parameter id: photo identifier.
+    /// - Returns: resource for fetching the photo download link.
     public static func downloadLink(id: String) -> Resource<String> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
@@ -213,6 +258,22 @@ public extension Photo {
         })
     }
     
+    /// Resource for updating a photo.
+    ///
+    /// - Parameters:
+    ///   - id: photo identifier.
+    ///   - locationPosition: photo new location position.
+    ///   - locationName: photo new location ma.e
+    ///   - locationCity: photo new location city.
+    ///   - locationCountry: photo new country.
+    ///   - locationConfidential: photo new confidential.
+    ///   - exifMake: photo new exif make.
+    ///   - exifModel: photo new exif model.
+    ///   - exifExposureTime: photo new exif exposure time.
+    ///   - exifAperture: photo new exif aperture.
+    ///   - exifFocalLength: photo new exif focal length.
+    ///   - exifIsoSpeedRatings: photo new exif iso speed ratings.
+    /// - Returns: resource for updating the photo.
     public static func update(id: String,
                               locationPosition: CLLocation? = nil,
                               locationName: String? = nil,
@@ -270,6 +331,10 @@ public extension Photo {
         }
     }
     
+    /// Resource for liking a photo.
+    ///
+    /// - Parameter id: photo to be liked.
+    /// - Returns: resource for liking the photo.
     public static func like(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
@@ -282,6 +347,10 @@ public extension Photo {
         })
     }
     
+    /// Resource for unliking a photo
+    ///
+    /// - Parameter id: photo to be unliked.
+    /// - Returns: resource for unliking the photo.
     public static func unlike(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
