@@ -68,7 +68,7 @@ call() { result in
 #### Random photo
 
 ```swift
-UnsplashClient().randomPhoto() { result in
+UnsplashSource().randomPhoto() { result in
   // handle the result
 }
 ```
@@ -76,7 +76,7 @@ UnsplashClient().randomPhoto() { result in
 #### Random from a category
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .nature) { result in
+UnsplashSource().randomPhoto(fromCategory: .nature) { result in
     // handle the result
 }
 ```
@@ -95,7 +95,7 @@ Unsplash offers a list of predefined categories. You can ask for a photo from an
 #### Random from a specific user
 
 ```swift
-UnsplashClient().randomPhoto(fromUser: "carambalabs") { result in
+UnsplashSource().randomPhoto(fromUser: "carambalabs") { result in
     // handle the result
 }
 ```
@@ -103,7 +103,7 @@ UnsplashClient().randomPhoto(fromUser: "carambalabs") { result in
 #### Random from a user's likes
 
 ```swift
-UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn") { result in
+UnsplashSource().randomPhoto(fromUserLikes: "mkwlsn") { result in
     // handle the image
 }
 ```
@@ -111,7 +111,7 @@ UnsplashClient().randomPhoto(fromUserLikes: "mkwlsn") { result in
 #### Random from a collection
 
 ```swift
-UnsplashClient().randomPhoto(fromCollection: "176316") { result in
+UnsplashSource().randomPhoto(fromCollection: "176316") { result in
     // handle the result
 }
 ```
@@ -119,7 +119,7 @@ UnsplashClient().randomPhoto(fromCollection: "176316") { result in
 #### Random search term
 
 ```swift
-UnsplashClient().randomPhoto(fromSearch: ["nature", "water"]) { result in
+UnsplashSource().randomPhoto(fromSearch: ["nature", "water"]) { result in
     // handle the result
 }
 ```
@@ -127,7 +127,7 @@ UnsplashClient().randomPhoto(fromSearch: ["nature", "water"]) { result in
 #### Specific photo
 
 ```swift
-UnsplashClient().photo("WLUHO9A_xik") { result in
+UnsplashSource().photo("WLUHO9A_xik") { result in
     // handle the result
 }
 ```
@@ -137,7 +137,7 @@ UnsplashClient().photo("WLUHO9A_xik") { result in
 If you want to get an image of a specific size you can use the optional `size` parameter in any call.
 
 ```swift
-UnsplashClient().randomPhoto(fromCategory: .nature, size: CGSize(width: 600, height: 200)) { result in
+UnsplashSource().randomPhoto(fromCategory: .nature, size: CGSize(width: 600, height: 200)) { result in
     // handle the result
 }
 ```
@@ -147,7 +147,7 @@ UnsplashClient().randomPhoto(fromCategory: .nature, size: CGSize(width: 600, hei
 The calls `random`, `search`, `category` and `user` can also be limited to only updating once per day or week. To do so, simply use the optional `filter` parameter.
 
 ```swift
-UnsplashClient().randomPhoto(filter: .daily) { result in
+UnsplashSource().randomPhoto(filter: .daily) { result in
     // handle the result
 }
 ```
