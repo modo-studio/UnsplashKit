@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Unsplash.playground">
+   </FileRef>
+   <FileRef
       location = "group:UnsplashKit.xcodeproj">
    </FileRef>
    <FileRef

@@ -6,22 +6,53 @@ public struct User: Unboxable {
     
     // MARK: - Attributes
     
+    /// User identifier.
     public let id: String
+    
+    /// User username.
     public let username: String
+    
+    /// User first name.
     public let firstName: String
+    
+    /// User last name.
     public let lastName: String
+    
+    /// User portfolio url.
     public let portfolioUrl: String
+    
+    /// User biography.
     public let bio: String?
+    
+    /// User location.
     public let location: String?
+    
+    /// User total likes.
     public let totalLikes: Int
+    
+    /// User total photos.
     public let totalPhotos: Int
+    
+    /// User total collections.
     public let totalCollections: Int
+    
+    /// User followed by user. It's true if the authenticated user is following the user.
     public let followedByUser: Bool
+    
+    /// Number of downloads.
     public let downloads: Int
-    public let uploadsRemaining: Int
+    
+    /// Number of uploads remaining.
+    public let uploadsRemaining: Int?
+    
+    /// Instagram username.
     public let instagramUsername: String?
-    public let email: String
-    public let links: UserLinks
+    
+    /// Email address.
+    public let email: String?
+    
+    /// User links.
+    public let links: UserLinks?
     
     // MARK: - Unboxable
     
@@ -39,10 +70,10 @@ public struct User: Unboxable {
         self.totalCollections = try unboxer.unbox(key: "total_collections")
         self.followedByUser = try unboxer.unbox(key: "followed_by_user")
         self.downloads = try unboxer.unbox(key: "downloads")
-        self.uploadsRemaining = try unboxer.unbox(key: "uploads_remaining")
+        self.uploadsRemaining = unboxer.unbox(key: "uploads_remaining")
         self.instagramUsername = unboxer.unbox(key: "instagram_username")
-        self.email = try unboxer.unbox(key: "email")
-        self.links = try unboxer.unbox(key: "links")
+        self.email = unboxer.unbox(key: "email")
+        self.links = unboxer.unbox(key: "links")
     }
 }
 
@@ -51,6 +82,8 @@ public struct User: Unboxable {
 
 public extension User {
     
+    
+    /// Returns the resource to fetch the authenticated user.
     public static var me: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
         var mutable: URLComponents = components
         mutable.path = "/me"
