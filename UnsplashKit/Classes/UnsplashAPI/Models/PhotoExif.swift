@@ -6,11 +6,22 @@ public struct PhotoExif: Unboxable {
 
     // MARK: - Attributes
 
+    /// Exif make.
     public let make: String?
+
+    /// Exif model.
     public let model: String?
+
+    /// Exif exposure time.
     public let exposureTime: String?
+
+    /// Exif aperture.
     public let aperture: String?
+
+    /// Exif focal length.
     public let focalLength: String?
+
+    /// Exif iso value.
     public let iso: Int?
 
     // MARK: - Unboxable

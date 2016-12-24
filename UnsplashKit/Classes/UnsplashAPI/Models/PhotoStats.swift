@@ -1,13 +1,21 @@
 import Foundation
 import Unbox
 
+/// Photo stats.
 public struct PhotoStats: Unboxable {
 
     // MARK: - Attributes
 
-    public let downloads: Double
-    public let likes: Double
-    public let views: Double
+    /// Photo downloads.
+    public let downloads: UInt
+
+    /// Photo likes.
+    public let likes: UInt
+
+    /// Photo views.
+    public let views: UInt
+    
+    /// Photo links.
     public let links: PhotoLinks
 
     // MARK: - Unboxable

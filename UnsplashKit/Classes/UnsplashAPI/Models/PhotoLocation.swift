@@ -7,9 +7,16 @@ public struct PhotoLocation: Unboxable {
 
     // MARK: - Attributes
 
+    /// Location name.
     public let name: String?
+
+    /// Location city.
     public let city: String?
+
+    /// Location country.
     public let country: String?
+
+    /// Location coordinates.
     public let location: CLLocation?
 
     // MARK: - Unboxable

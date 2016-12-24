@@ -7,13 +7,54 @@ public struct Photo: Unboxable {
     
     // MARK: - Attributes
     
+    /// Photo identifier
     public let id: String
+    
+    /// Photo created at date.
+    public let createdAt: Date
+    
+    /// Photo width.
+    public let width: CGFloat
+    
+    /// Photo height.
+    public let height: CGFloat
+    
+    /// Photo color.
+    public let color: String
+    
+    /// Photo likes.
+    public let likes: UInt
+    
+    /// Photo URLs.
+    public let urls: PhotoUrls?
+    
+    /// Photo categories.
+    public let categories: [PhotoCategory]?
+    
+    /// Photo links
+    public let links: PhotoLinks?
+    
+    /// Photo user
+    public let user: User?
+    
+    /// Photo current user collections.
+    public let currentUserCollections: [Collection]?
     
     // MARK: - Unboxable
     
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
+        self.createdAt = try unboxer.unbox(key: "created_at", formatter: DateFormatter.unsplash)
+        self.width = try unboxer.unbox(key: "width")
+        self.height = try unboxer.unbox(key: "height")
+        self.color = try unboxer.unbox(key: "color")
+        self.likes = try unboxer.unbox(key: "likes")
+        self.urls = unboxer.unbox(key: "urls")
+        self.links = unboxer.unbox(key: "links")
+        self.categories = unboxer.unbox(key: "categories")
+        self.user = unboxer.unbox(key: "user")
+        self.currentUserCollections = unboxer.unbox(key: "current_user_collections")
     }
     
 }

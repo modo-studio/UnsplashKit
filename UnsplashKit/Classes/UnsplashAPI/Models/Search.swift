@@ -5,7 +5,7 @@ public struct Search {
 
     public static func photos(query: String,
                               page: Int = 1,
-                              perPage: Int = 10) -> Resource<[ShortPhoto]> {
+                              perPage: Int = 10) -> Resource<[Photo]> {
         var queryItems: [URLQueryItem] = []
         queryItems.append(URLQueryItem(name: "query", value: query))
         queryItems.append(URLQueryItem(name: "page", value: "\(page)"))

@@ -4,11 +4,56 @@ import Unbox
 // Used from user/:username/collections
 public struct Collection: Unboxable {
     
+    // MARK: - Properties
+    
+    /// Collection identifier.
+    public let id: Int
+    
+    /// Collection title.
+    public let title: String
+    
+    /// Collection description.
+    public let description: String?
+    
+    /// Collection published at.
+    public let publishedAt: Date
+    
+    /// Collection curated.
+    public let curated: Bool
+    
+    /// Collection featured.
+    public let featured: Bool
+    
+    /// Collection total photos.
+    public let totalPhotos: UInt
+    
+    /// Collection privateness.
+    public let isPrivate: Bool
+    
+    /// Collection cover photo.
+    public let coverPhoto: Photo?
+    
+    /// Collection user
+    public let user: User?
+    
+    /// Collection links.
+    public let links: CollectionLinks?
+    
     // MARK: - Unboxable
     
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
-        //TODO
+        self.id = try unboxer.unbox(key: "id")
+        self.title = try unboxer.unbox(key: "title")
+        self.description = unboxer.unbox(key: "description")
+        self.publishedAt = try unboxer.unbox(key: "published_at", formatter: DateFormatter.unsplash)
+        self.curated = try unboxer.unbox(key: "curated")
+        self.featured = try unboxer.unbox(key: "featured")
+        self.totalPhotos = try unboxer.unbox(key: "total_photos")
+        self.isPrivate = try unboxer.unbox(key: "private")
+        self.coverPhoto = unboxer.unbox(key: "cover_photo")
+        self.user = unboxer.unbox(key: "user")
+        self.links = unboxer.unbox(key: "links")
     }
     
 }
@@ -64,7 +109,7 @@ public extension Collection {
     }
     
     public static func get(id: String) -> Resource<Collection> {
-        var queryItems: [URLQueryItem] = []
+        let queryItems: [URLQueryItem] = []
         return Resource { (components: URLComponents) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/collections/\(id)"
@@ -108,7 +153,7 @@ public extension Collection {
     }
     
     public static func related(id: String) -> Resource<[Collection]> {
-        var queryItems: [URLQueryItem] = []
+        let queryItems: [URLQueryItem] = []
         return Resource { (components: URLComponents) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/collections/\(id)/related"
@@ -165,7 +210,7 @@ public extension Collection {
     }
     
     public static func delete(id: String) -> Resource<Void> {
-        var queryItems: [URLQueryItem] = []
+        let queryItems: [URLQueryItem] = []
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/collections/\(id)"
