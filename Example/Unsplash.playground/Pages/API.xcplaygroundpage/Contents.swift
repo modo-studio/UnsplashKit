@@ -24,23 +24,20 @@ var client = UnsplashClient { request -> [String: String] in
 Models expose the requests that can be executed as resources. A resource contains the request, and how the response should be parsed. For example `User.me` returns the resource to fetch the authenticated user.
 */
 
-//client.execute(resource: User.me) { (result) in
-//    if let userFirstName = result.value?.object.firstName {
-//        print("📷 User name: \(userFirstName)")
-//    }
-//}
-
-//: - Fetch authenticated user `User.me`.
-//: - Update authenticated user `User.updateMe`.
-//: - Get user `User.get`.
-//: - Get user portfolio `User.portfolio`.
-
-client.execute(resource: Search.collections(query: "a")) { (result) in
-    print(result)
-    if let value = result.value?.object {
-        dump(value[0])
+client.execute(resource: User.me) { (result) in
+    if let userFirstName = result.value?.object.firstName {
+        print("📷 User name: \(userFirstName)")
     }
 }
+
+/*:
+ Some examples of these resources could be:
+*/
+
+let searchPhotos = Search.photos(query: "mountain")
+let curatedCollections = Collection.curated()
+let curatedPhotos = Photo.curated()
+
 
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 

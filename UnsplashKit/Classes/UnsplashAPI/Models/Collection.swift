@@ -62,7 +62,13 @@ public struct Collection: Unboxable {
 // MARK: - Resources
 
 public extension Collection {
-    
+
+    /// Resource that lists the collections.
+    ///
+    /// - Parameters:
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items per page.
+    /// - Returns: resource for fetching the collections.
     public static func list(page: Int = 1,
                             perPage: Int = 10) -> Resource<[Collection]> {
         var queryItems: [URLQueryItem] = []
@@ -78,6 +84,12 @@ public extension Collection {
         }
     }
     
+    /// Resource that returns the featured collections.
+    ///
+    /// - Parameters:
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items to be fetched.
+    /// - Returns: resource for fetching the featured collections.
     public static func featured(page: Int = 1,
                                 perPage: Int = 10) -> Resource<[Collection]> {
         var queryItems: [URLQueryItem] = []
@@ -93,6 +105,12 @@ public extension Collection {
         }
     }
     
+    /// Resource for fetching curated collections.
+    ///
+    /// - Parameters:
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items to be fetched.
+    /// - Returns: resource for fetching curated collections.
     public static func curated(page: Int = 1,
                                perPage: Int = 10) -> Resource<[Collection]> {
         var queryItems: [URLQueryItem] = []
@@ -108,6 +126,10 @@ public extension Collection {
         }
     }
     
+    /// Resource for fetching a collection.
+    ///
+    /// - Parameter id: collection identifier.
+    /// - Returns: resource for fetching the collection.
     public static func get(id: String) -> Resource<Collection> {
         let queryItems: [URLQueryItem] = []
         return Resource { (components: URLComponents) -> URLRequest in
@@ -120,6 +142,13 @@ public extension Collection {
         }
     }
     
+    /// Resource for fetching a collection photos.
+    ///
+    /// - Parameters:
+    ///   - id: collection id.
+    ///   - page: page to be fetched.
+    ///   - perPage: items per page.
+    /// - Returns: resource for fetching the photos.
     public static func photos(id: String,
                               page: Int = 1,
                               perPage: Int = 10) -> Resource<[Photo]> {
@@ -136,6 +165,13 @@ public extension Collection {
         }
     }
     
+    /// Resource for fetching the photos of a curated collection.
+    ///
+    /// - Parameters:
+    ///   - id: collection identifier.
+    ///   - page: page to be fetched.
+    ///   - perPage: number of items per page.
+    /// - Returns: resource for fetching the photos.
     public static func curatedPhotos(id: String,
                                      page: Int = 1,
                                      perPage: Int = 10) -> Resource<[Photo]> {
@@ -152,6 +188,10 @@ public extension Collection {
         }
     }
     
+    /// Resource for fetching related collections to a given one.
+    ///
+    /// - Parameter id: collection identifier whose related ones will be fetched.
+    /// - Returns: resource for fetching the related collections.
     public static func related(id: String) -> Resource<[Collection]> {
         let queryItems: [URLQueryItem] = []
         return Resource { (components: URLComponents) -> URLRequest in
@@ -164,6 +204,13 @@ public extension Collection {
         }
     }
     
+    /// Resource for creating a collection.
+    ///
+    /// - Parameters:
+    ///   - title: collection title.
+    ///   - description: collection title.
+    ///   - isPrivate: collection private value.
+    /// - Returns: resource for creating the collection.
     public static func create(title: String,
                               description: String? = nil,
                               isPrivate: Bool? = nil) -> Resource<Collection> {
@@ -185,6 +232,14 @@ public extension Collection {
         }
     }
     
+    /// Resource for updating a collection.
+    ///
+    /// - Parameters:
+    ///   - id: collection identifier.
+    ///   - title: new title.
+    ///   - description: new description.
+    ///   - isPrivate: new private value.
+    /// - Returns: resource for updating theh collection.
     public static func update(id: String,
                               title: String? = nil,
                               description: String? = nil,
@@ -209,6 +264,10 @@ public extension Collection {
         }
     }
     
+    /// Resource for deleting the collection.
+    ///
+    /// - Parameter id: collection identifier.
+    /// - Returns: resource for deleting the collection.
     public static func delete(id: String) -> Resource<Void> {
         let queryItems: [URLQueryItem] = []
         return Resource(request: { (components) -> URLRequest in
@@ -223,6 +282,12 @@ public extension Collection {
         })
     }
     
+    /// Resource for adding a photo to a collection.
+    ///
+    /// - Parameters:
+    ///   - id: photo identifier.
+    ///   - collection: collection identifier.
+    /// - Returns: resource for adding the photo.
     public static func addPhoto(with id: String,
                                 to collection: String) -> Resource<Void> {
         var queryItems: [URLQueryItem] = []
@@ -239,6 +304,12 @@ public extension Collection {
         })
     }
     
+    /// Resource for deleting a photo from a collection.
+    ///
+    /// - Parameters:
+    ///   - id: photo identifier.
+    ///   - collection: collection identifier.
+    /// - Returns: resource for deleting the photo.
     public static func deletePhoto(with id: String,
                                    from collection: String) -> Resource<Void> {
         var queryItems: [URLQueryItem] = []
