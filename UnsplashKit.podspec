@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'UnsplashKit'
-  s.version          = '2.0.2'
+  s.version          = '2.0.3'
   s.summary          = 'Client for Unsplash API'
   s.description      = <<-DESC
 Swift client for unsplash.com API
@@ -15,16 +15,16 @@ Swift client for unsplash.com API
 
   s.subspec "Foundation" do |ss|
     ss.source_files = 'UnsplashKit/Classes/Foundation/**/*'
+    ss.dependency 'Unbox', '~> 2.3'
+    ss.dependency 'Result', '~> 3.1'
+    ss.dependency 'HTTPStatusCodes', '~> 3.1'
+    ss.frameworks = ["CoreLocation"]
   end
 
   s.subspec "Source" do |ss|
     ss.dependency 'CarambaKit/Networking', '~> 1.0.0'
     ss.source_files = 'UnsplashKit/Classes/UnsplashSource/**/*'
     ss.dependency 'UnsplashKit/Foundation'
-    ss.dependency 'HTTPStatusCodes', '~> 3.1'
-    ss.dependency 'Unbox', '~> 2.3'
-    ss.dependency 'Result', '~> 3.1'
-    ss.frameworks = ["CoreLocation"]
   end
 
   s.subspec "API" do |ss|
