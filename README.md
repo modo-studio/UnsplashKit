@@ -35,12 +35,30 @@ import UnsplashKit
 
 ### Official API
 
-:warning: **Not fully available yet**
+First thing you need is an instance of the client for executing requests and parsing responses from the API:
 
-#### Checklist
-- [ ] Define models.
-- [ ] Test all endpoints.
-- [ ] Tests
+```swift
+var token = "xxxx"
+var client = UnsplashClient { request -> [String: String] in
+    return [ "Authorization": "Bearer \(token)"]
+}
+```
+
+Since the client supports providing headers for the requests, we'll use that closure to specify the authenticationt tokent that we want to pass in. UnsplashKit doesn't provide the OAuth2 authentication components, but you can use [Paparajote](https://github.com/carambalabs/paparajote) instead.
+
+
+### Resources
+
+Once the client is created you can use models' resources that contain the information about the request and about how to parse the JSON response into models whose properties you can access directly to. Here's an example:
+
+```swift
+let searchPhotos = Search.photos(query: "mountain")
+client.execute(resource: searchPhotos) { (result) in
+  print(result)
+}
+```
+
+> The models that contain resources are, `User`, `Photo`, `Search`, `Collection`.  These resources match the endpoints available from the API. If there's any new endpoint which is not supported, you can either create an issue, open a PR or contact [hello@caramba.io](mailto://hello@caramba.io)
 
 ### Source API
 
