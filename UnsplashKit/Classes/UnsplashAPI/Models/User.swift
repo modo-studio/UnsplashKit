@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 import Unbox
 
 /// Unsplash User

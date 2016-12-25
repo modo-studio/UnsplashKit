@@ -1,6 +1,7 @@
 import Foundation
 import Unbox
 import CoreLocation
+import CoreGraphics
 
 /// Photo
 public struct Photo: Unboxable {
