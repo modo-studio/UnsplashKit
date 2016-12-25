@@ -3,7 +3,7 @@ import XCTest
 
 @testable import UnsplashKit
 
-final class UserTests: XCTestCase {
+final class UserSpec: XCTestCase {
     
     func test_that_resource_me_show_returns_the_correct_resource() {
         XCTAssertResource(resource: User.me,

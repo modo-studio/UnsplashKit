@@ -300,8 +300,8 @@ public extension Photo {
         if let locationConfidential = locationConfidential {
             queryItems.append(URLQueryItem(name: "location[confidential]", value: locationConfidential))
         }
-        if let locationName = locationName {
-            queryItems.append(URLQueryItem(name: "location[name]", value: locationName))
+        if let locationCountry = locationCountry {
+            queryItems.append(URLQueryItem(name: "location[country]", value: locationCountry))
         }
         if let exifMake = exifMake {
             queryItems.append(URLQueryItem(name: "exif[make]", value: exifMake))
@@ -340,7 +340,7 @@ public extension Photo {
             var mutable: URLComponents = components
             mutable.path = "/photos/\(id)/like"
             var request = URLRequest(url: mutable.url!)
-            request.httpMethod = "post"
+            request.httpMethod = "POST"
             return request
         }, jsonParse: { (_, _) -> Void in
             return ()
