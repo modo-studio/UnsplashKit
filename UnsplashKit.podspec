@@ -14,7 +14,7 @@ Swift client for unsplash.com API
   s.default_subspec = 'Source'
 
   s.subspec "Foundation" do |ss|
-    ss.source_files = 'UnsplashKit/Classes/Foundation/**/*'
+    ss.source_files = 'UnsplashKit/Classes/Foundation/**/*.swift'
     ss.dependency 'Unbox', '~> 2.3'
     ss.dependency 'Result', '~> 3.1'
     ss.dependency 'HTTPStatusCodes', '~> 3.1'
@@ -23,12 +23,12 @@ Swift client for unsplash.com API
 
   s.subspec "Source" do |ss|
     ss.dependency 'CarambaKit/Networking', '~> 1.0.0'
-    ss.source_files = 'UnsplashKit/Classes/UnsplashSource/**/*'
+    ss.source_files = 'UnsplashKit/Classes/UnsplashSource/**/*.swift'
     ss.dependency 'UnsplashKit/Foundation'
   end
 
   s.subspec "API" do |ss|
-    ss.source_files = 'UnsplashKit/Classes/UnsplashAPI/**/*'
+    ss.source_files = 'UnsplashKit/Classes/UnsplashAPI/**/*.swift'
     ss.dependency 'UnsplashKit/Foundation'
   end
 
