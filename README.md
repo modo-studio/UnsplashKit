@@ -172,7 +172,7 @@ UnsplashSource().randomPhoto(filter: .daily) { result in
 
 ## About
 
-<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/avatar_rounded.png?raw=true" width="70" />
+<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/logo-salmon.png?raw=true" width="200" />
 
 This project is funded and maintained by [Caramba](http://caramba.io). We 💛 open source software!
 
