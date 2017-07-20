@@ -31,7 +31,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -43,7 +43,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(fromSearch: ["o"], completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -55,7 +55,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(fromCategory: .nature, completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -67,7 +67,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(fromUser: "o", completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -79,7 +79,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(fromUserLikes: "o", completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -91,7 +91,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.randomPhoto(fromCollection: "o", completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }
@@ -103,7 +103,7 @@ class UnsplashSourceCallsSpec: QuickSpec {
                 var resultImageData: Data!
                 waitUntil(timeout: 5) { done in
                     subject.photo("o", completion: { result in
-                        resultImageData = UIImagePNGRepresentation(result.value!)
+                        resultImageData = UIImagePNGRepresentation(result.value!.0)
                         done()
                     })
                 }

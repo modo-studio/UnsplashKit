@@ -22,7 +22,7 @@ Swift client for unsplash.com API
   end
 
   s.subspec "Source" do |ss|
-    ss.dependency 'CarambaKit/Networking', '~> 1.0.0'
+    ss.dependency 'CarambaKit/Networking', '~> 1.0.9'
     ss.source_files = 'UnsplashKit/Classes/UnsplashSource/**/*.swift'
     ss.dependency 'UnsplashKit/Foundation'
   end
