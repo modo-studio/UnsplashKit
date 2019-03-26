@@ -10,6 +10,7 @@ Swift client for unsplash.com API
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Caramba.io' => 'hello@caramba.io' }
   s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
+  s.swift_version = '4.2'
 
   s.default_subspec = 'Source'
 

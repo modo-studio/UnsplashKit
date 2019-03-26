@@ -72,7 +72,7 @@ public extension Photo {
     ///   - perPage: number of items per page.
     ///   - orderBy: order by value.
     /// - Returns: resource for fetching photos.
-    public static func list(page: Int = 1,
+    static func list(page: Int = 1,
                             perPage: Int = 10,
                             orderBy: Order = .latest) -> Resource<[Photo]> {
         var queryItems: [URLQueryItem] = []
@@ -96,7 +96,7 @@ public extension Photo {
     ///   - perPage: number of items per page.
     ///   - orderBy: order by value.
     /// - Returns: resource for fetching the curated photos.
-    public static func curated(page: Int = 1,
+    static func curated(page: Int = 1,
                                perPage: Int = 10,
                                orderBy: Order = .latest) -> Resource<[Photo]> {
         var queryItems: [URLQueryItem] = []
@@ -120,7 +120,7 @@ public extension Photo {
     ///   - size: photo size.
     ///   - rect: photo rect.
     /// - Returns: resource for fetching a photo.
-    public static func get(id: String,
+    static func get(id: String,
                            size: CGSize? = nil,
                            rect: CGRect? = nil) -> Resource<Photo> {
         var queryItems: [URLQueryItem] = []
@@ -152,7 +152,7 @@ public extension Photo {
     ///   - size: size of the photos.
     ///   - orientation: orientation filtering.
     /// - Returns: resource for fetching the photos.
-    public static func random(categories: [String] = [],
+    static func random(categories: [String] = [],
                               collections: [String] = [],
                               featured: Bool? = nil,
                               username: String? = nil,
@@ -195,7 +195,7 @@ public extension Photo {
     ///   - size: size of the photos.
     ///   - orientation: orientation used for filtering.
     /// - Returns: resource for fetching the photos.
-    public static func random(count: Int,
+    static func random(count: Int,
                               categories: [String] = [],
                               collections: [String] = [],
                               featured: Bool? = nil,
@@ -233,7 +233,7 @@ public extension Photo {
     ///
     /// - Parameter id: photo identifier.
     /// - Returns: resource for fetching the stats.
-    public static func stats(id: String) -> Resource<PhotoStats> {
+    static func stats(id: String) -> Resource<PhotoStats> {
         return Resource { (components: URLComponents) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/photos/\(id)/stats"
@@ -247,7 +247,7 @@ public extension Photo {
     ///
     /// - Parameter id: photo identifier.
     /// - Returns: resource for fetching the photo download link.
-    public static func downloadLink(id: String) -> Resource<String> {
+    static func downloadLink(id: String) -> Resource<String> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/photos/\(id)/download"
@@ -275,7 +275,7 @@ public extension Photo {
     ///   - exifFocalLength: photo new exif focal length.
     ///   - exifIsoSpeedRatings: photo new exif iso speed ratings.
     /// - Returns: resource for updating the photo.
-    public static func update(id: String,
+    static func update(id: String,
                               locationPosition: CLLocation? = nil,
                               locationName: String? = nil,
                               locationCity: String? = nil,
@@ -336,7 +336,7 @@ public extension Photo {
     ///
     /// - Parameter id: photo to be liked.
     /// - Returns: resource for liking the photo.
-    public static func like(id: String) -> Resource<Void> {
+    static func like(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/photos/\(id)/like"
@@ -352,7 +352,7 @@ public extension Photo {
     ///
     /// - Parameter id: photo to be unliked.
     /// - Returns: resource for unliking the photo.
-    public static func unlike(id: String) -> Resource<Void> {
+    static func unlike(id: String) -> Resource<Void> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/photos/\(id)/like"

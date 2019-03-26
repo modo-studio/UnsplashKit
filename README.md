@@ -6,6 +6,8 @@
 
 Unsplash API client written in Swift.
 
+This Fork updates the Official API section to swift 4.2
+
 [Unsplash](https://unsplash.com/) offers 2 APIs:
 - [Source API](https://source.unsplash.com/) (unlimited requests)
 - [Official API](https://unsplash.com/documentation)

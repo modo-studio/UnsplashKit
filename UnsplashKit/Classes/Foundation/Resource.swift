@@ -48,11 +48,11 @@ public struct Resource<A> {
     internal init(request: @escaping (URLComponents) -> URLRequest,
                   jsonParse: @escaping (Any, HTTPURLResponse) throws -> A) {
         self.request = request
-        self.parse = { input -> A in
-            guard let json = try JSONSerialization.jsonObject(with: input.0, options: []) as? [String: Any] else {
+        self.parse = { data,response  -> A in
+            guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
                 throw ResourceError.invalidData
             }
-            return try jsonParse(json, input.1)
+            return try jsonParse(json, response)
         }
     }
 
