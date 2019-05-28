@@ -1,12 +1,14 @@
 ![UnsplashKit: Unsplash API Client in Swift](assets/unsplashkit-header.png)
 
-[![Build Status](https://travis-ci.org/carambalabs/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/UnsplashKit.svg)](https://img.shields.io/cocoapods/v/UnsplashKit.svg)
-[![codecov](https://codecov.io/gh/carambalabs/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/modo-studio/UnsplashKit.svg?branch=master)](https://travis-ci.org/carambalabs/UnsplashKit)
+[![codecov](https://codecov.io/gh/modo-studio/UnsplashKit/branch/master/graph/badge.svg)](https://codecov.io/gh/carambalabs/UnsplashKit)
 
 Unsplash API client written in Swift.
 
 [Unsplash](https://unsplash.com/) offers 2 APIs:
+
 - [Source API](https://source.unsplash.com/) (unlimited requests)
 - [Official API](https://unsplash.com/documentation)
 - [JSON API](https://unsplash.com/documentation) (5000 requests / hour)
@@ -15,8 +17,8 @@ JSON API is in progress and will be available soon in this library.
 
 ## Requirements
 
-* iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
-* Xcode 8.0+
+- iOS 8.0+ / Mac OS X 10.9+ / tvOS 9.0+ / watchOS 2.0+
+- Xcode 8.0+
 
 ## Installation
 
@@ -44,8 +46,7 @@ var client = UnsplashClient { request -> [String: String] in
 }
 ```
 
-Since the client supports providing headers for the requests, we'll use that closure to specify the authenticationt tokent that we want to pass in. UnsplashKit doesn't provide the OAuth2 authentication components, but you can use [Paparajote](https://github.com/carambalabs/paparajote) instead.
-
+Since the client supports providing headers for the requests, we'll use that closure to specify the authenticationt tokent that we want to pass in.
 
 ### Resources
 
@@ -58,7 +59,7 @@ client.execute(resource: searchPhotos) { (result) in
 }
 ```
 
-> The models that contain resources are, `User`, `Photo`, `Search`, `Collection`.  These resources match the endpoints available from the API. If there's any new endpoint which is not supported, you can either create an issue, open a PR or contact [hello@caramba.io](mailto://hello@caramba.io)
+> The models that contain resources are, `User`, `Photo`, `Search`, `Collection`. These resources match the endpoints available from the API. If there's any new endpoint which is not supported, you can either create an issue or open a PR.
 
 ### Source API
 
@@ -67,6 +68,7 @@ Source API allows you to get an Unsplash image in different ways.
 #### Results
 
 All the calls return the image through a completion block that returns a `Result<Image, Error>`.
+
 ```swift
 call() { result in
   switch result {
@@ -77,6 +79,7 @@ call() { result in
 ```
 
 You can also ignore the error and get only the result using
+
 ```swift
 call() { result in
   let image = result.value
@@ -172,15 +175,15 @@ UnsplashSource().randomPhoto(filter: .daily) { result in
 
 ## About
 
-<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/logo-salmon.png?raw=true" width="200" />
+<img src="https://github.com/modo-studio/Foundation/blob/master/ASSETS/modo-logo-salmon.png?raw=true" width="200" /><br/>
 
-This project is funded and maintained by [Caramba](http://caramba.io). We 💛 open source software!
+This project is funded and maintained by [Modo Studio](https://modo.studio). We 💛 open source software!
 
-Check out our other [open source projects](https://github.com/carambalabs/), read our [blog](http://blog.caramba.io) or say :wave: on twitter [@carambalabs](http://twitter.com/carambalabs).
+Check out our other [open source projects](https://github.com/modo-studio/), check out our [website](https://modo.studio) or say :wave: on twitter [@modostudio\_](http://twitter.com/modostudio_).
 
 ## Contribute
 
-Contributions are welcome :metal: We encourage developers like you to help us improve the projects we've shared with the community. Please see the [Contributing Guide](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md).
+Contributions are welcome :metal: We encourage developers like you to help us improve the projects we've shared with the community. Please see the [Contributing Guide](https://github.com/modo-studio/Foundation/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/modo-studio/Foundation/blob/master/CONDUCT.md).
 
 ## License
 
