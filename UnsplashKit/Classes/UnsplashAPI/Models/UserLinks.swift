@@ -36,8 +36,8 @@ public struct UserLinks: Unboxable {
         self.photos = try unboxer.unbox(key: "photos")
         self.likes = try unboxer.unbox(key: "likes")
         self.portfolio = try unboxer.unbox(key: "portfolio")
-        self.followers = unboxer.unbox(key: "followers")
-        self.following = unboxer.unbox(key: "following")
+        self.followers = try? unboxer.unbox(key: "followers")
+        self.following = try? unboxer.unbox(key: "following")
     }
 
 }

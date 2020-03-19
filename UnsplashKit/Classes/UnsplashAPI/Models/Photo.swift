@@ -51,11 +51,11 @@ public struct Photo: Unboxable {
         self.height = try unboxer.unbox(key: "height")
         self.color = try unboxer.unbox(key: "color")
         self.likes = try unboxer.unbox(key: "likes")
-        self.urls = unboxer.unbox(key: "urls")
-        self.links = unboxer.unbox(key: "links")
-        self.categories = unboxer.unbox(key: "categories")
-        self.user = unboxer.unbox(key: "user")
-        self.currentUserCollections = unboxer.unbox(key: "current_user_collections")
+        self.urls = try? unboxer.unbox(key: "urls")
+        self.links = try? unboxer.unbox(key: "links")
+        self.categories = try? unboxer.unbox(key: "categories")
+        self.user = try? unboxer.unbox(key: "user")
+        self.currentUserCollections = try? unboxer.unbox(key: "current_user_collections")
     }
     
 }

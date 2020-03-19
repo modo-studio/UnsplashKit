@@ -23,11 +23,11 @@ public struct PhotoLocation: Unboxable {
 
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
-        self.name = unboxer.unbox(key: "name")
-        self.city = unboxer.unbox(key: "city")
-        self.country = unboxer.unbox(key: "country")
-        if let latitude: Double = unboxer.unbox(key: "position.latitude"),
-            let longitude: Double = unboxer.unbox(key: "position.longitude") {
+        self.name = try? unboxer.unbox(key: "name")
+        self.city = try? unboxer.unbox(key: "city")
+        self.country = try? unboxer.unbox(key: "country")
+        if let latitude: Double = try? unboxer.unbox(key: "position.latitude"),
+            let longitude: Double = try? unboxer.unbox(key: "position.longitude") {
             self.location = CLLocation(latitude: latitude, longitude: longitude)
         } else {
             self.location = nil

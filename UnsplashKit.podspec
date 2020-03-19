@@ -16,8 +16,8 @@ Swift client for unsplash.com API
 
   s.subspec "Foundation" do |ss|
     ss.source_files = 'UnsplashKit/Classes/Foundation/**/*.swift'
-    ss.dependency 'Unbox', '~> 2.3'
-    ss.dependency 'Result', '~> 3.1'
+    ss.dependency 'Unbox', '~> 4.0'
+    ss.dependency 'Result', '~> 5.0'
     ss.dependency 'HTTPStatusCodes', '~> 3.1'
     ss.frameworks = ["CoreLocation"]
   end

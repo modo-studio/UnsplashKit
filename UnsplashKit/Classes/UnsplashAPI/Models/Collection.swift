@@ -45,15 +45,15 @@ public struct Collection: Unboxable {
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
         self.title = try unboxer.unbox(key: "title")
-        self.description = unboxer.unbox(key: "description")
+        self.description = try? unboxer.unbox(key: "description")
         self.publishedAt = try unboxer.unbox(key: "published_at", formatter: DateFormatter.unsplash)
         self.curated = try unboxer.unbox(key: "curated")
         self.featured = try unboxer.unbox(key: "featured")
         self.totalPhotos = try unboxer.unbox(key: "total_photos")
         self.isPrivate = try unboxer.unbox(key: "private")
-        self.coverPhoto = unboxer.unbox(key: "cover_photo")
-        self.user = unboxer.unbox(key: "user")
-        self.links = unboxer.unbox(key: "links")
+        self.coverPhoto = try? unboxer.unbox(key: "cover_photo")
+        self.user = try? unboxer.unbox(key: "user")
+        self.links = try? unboxer.unbox(key: "links")
     }
     
 }

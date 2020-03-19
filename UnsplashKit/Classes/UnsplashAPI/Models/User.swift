@@ -63,22 +63,22 @@ public struct User: Unboxable {
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
-        self.name = unboxer.unbox(key: "name")
+        self.name = try? unboxer.unbox(key: "name")
         self.username = try unboxer.unbox(key: "username")
         self.firstName = try unboxer.unbox(key: "first_name")
-        self.lastName = unboxer.unbox(key: "last_name")
-        self.portfolioUrl = unboxer.unbox(key: "portfolio_url")
-        self.bio = unboxer.unbox(key: "bio")
-        self.location = unboxer.unbox(key: "location")
+        self.lastName = try? unboxer.unbox(key: "last_name")
+        self.portfolioUrl = try? unboxer.unbox(key: "portfolio_url")
+        self.bio = try? unboxer.unbox(key: "bio")
+        self.location = try? unboxer.unbox(key: "location")
         self.totalLikes = try unboxer.unbox(key: "total_likes")
         self.totalPhotos = try unboxer.unbox(key: "total_photos")
         self.totalCollections = try unboxer.unbox(key: "total_collections")
-        self.followedByUser = unboxer.unbox(key: "followed_by_user")
-        self.downloads = unboxer.unbox(key: "downloads")
-        self.uploadsRemaining = unboxer.unbox(key: "uploads_remaining")
-        self.instagramUsername = unboxer.unbox(key: "instagram_username")
-        self.email = unboxer.unbox(key: "email")
-        self.links = unboxer.unbox(key: "links")
+        self.followedByUser = try? unboxer.unbox(key: "followed_by_user")
+        self.downloads = try? unboxer.unbox(key: "downloads")
+        self.uploadsRemaining = try? unboxer.unbox(key: "uploads_remaining")
+        self.instagramUsername = try? unboxer.unbox(key: "instagram_username")
+        self.email = try? unboxer.unbox(key: "email")
+        self.links = try? unboxer.unbox(key: "links")
     }
 }
 

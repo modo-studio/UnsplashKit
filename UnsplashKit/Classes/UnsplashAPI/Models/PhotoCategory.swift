@@ -21,7 +21,7 @@ public struct PhotoCategory: Unboxable {
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
         self.title = try unboxer.unbox(key: "title")
-        self.links = unboxer.unbox(key: "links")
+        self.links = try? unboxer.unbox(key: "links")
     }
 
 }
