@@ -41,6 +41,12 @@ public struct Photo: Unboxable {
     /// Photo current user collections.
     public let currentUserCollections: [Collection]?
     
+    /// Photo description
+    public let description: String?
+    
+    /// Photo alternative description
+    public let altDescription: String?
+    
     // MARK: - Unboxable
     
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
@@ -56,6 +62,8 @@ public struct Photo: Unboxable {
         self.categories = try? unboxer.unbox(key: "categories")
         self.user = try? unboxer.unbox(key: "user")
         self.currentUserCollections = try? unboxer.unbox(key: "current_user_collections")
+        self.description = try? unboxer.unbox(key: "description")
+        self.altDescription = try? unboxer.unbox(key: "alt_description")
     }
     
 }
