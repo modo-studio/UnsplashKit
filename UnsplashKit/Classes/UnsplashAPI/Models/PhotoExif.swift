@@ -28,11 +28,11 @@ public struct PhotoExif: Unboxable {
 
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
-        self.make = unboxer.unbox(key: "make")
-        self.model = unboxer.unbox(key: "model")
-        self.exposureTime = unboxer.unbox(key: "exposure_time")
-        self.aperture = unboxer.unbox(key: "aperture")
-        self.focalLength = unboxer.unbox(key: "focal_length")
-        self.iso = unboxer.unbox(key: "iso")
+        self.make = try? unboxer.unbox(key: "make")
+        self.model = try? unboxer.unbox(key: "model")
+        self.exposureTime = try? unboxer.unbox(key: "exposure_time")
+        self.aperture = try? unboxer.unbox(key: "aperture")
+        self.focalLength = try? unboxer.unbox(key: "focal_length")
+        self.iso = try? unboxer.unbox(key: "iso")
     }
 }

@@ -1,6 +1,10 @@
 import Foundation
 import Unbox
 
+public enum SearchOrder: String {
+    case latest, relevant
+}
+
 /// Resources
 public struct Search {
 
@@ -13,11 +17,13 @@ public struct Search {
     /// - Returns: resource for searching photos.
     public static func photos(query: String,
                               page: Int = 1,
-                              perPage: Int = 10) -> Resource<[Photo]> {
+                              perPage: Int = 10,
+                              orderBy: SearchOrder = .relevant ) -> Resource<[Photo]> {
         var queryItems: [URLQueryItem] = []
         queryItems.append(URLQueryItem(name: "query", value: query))
         queryItems.append(URLQueryItem(name: "page", value: "\(page)"))
         queryItems.append(URLQueryItem(name: "per_page", value: "\(perPage)"))
+        queryItems.append(URLQueryItem(name: "order_by", value: orderBy.rawValue))
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/search/photos"

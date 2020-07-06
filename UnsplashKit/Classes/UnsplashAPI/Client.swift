@@ -39,8 +39,8 @@ public final class UnsplashClient {
 
     // MARK: - Constants
 
-    fileprivate struct Constants {
-        static var location: String = "https://api.unsplash.com/"
+    public struct Constants {
+        public static var location: String = "https://api.unsplash.com/"
     }
 
     // MARK: - Attributes
@@ -119,7 +119,7 @@ public final class UnsplashClient {
 
 public extension UnsplashClient {
 
-    convenience public init(location: URL = URL(string: UnsplashClient.Constants.location)!,
+    convenience init(location: URL = URL(string: UnsplashClient.Constants.location)!,
                             session: URLSession = URLSession.shared,
                             headersProvider: HeadersProvider) {
         self.init(location: location, session: session, headers: headersProvider.headers)

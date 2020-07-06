@@ -63,22 +63,22 @@ public struct User: Unboxable {
     /// Initialize an instance of this model by unboxing a dictionary using an Unboxer
     public init(unboxer: Unboxer) throws {
         self.id = try unboxer.unbox(key: "id")
-        self.name = unboxer.unbox(key: "name")
+        self.name = try? unboxer.unbox(key: "name")
         self.username = try unboxer.unbox(key: "username")
         self.firstName = try unboxer.unbox(key: "first_name")
-        self.lastName = unboxer.unbox(key: "last_name")
-        self.portfolioUrl = unboxer.unbox(key: "portfolio_url")
-        self.bio = unboxer.unbox(key: "bio")
-        self.location = unboxer.unbox(key: "location")
+        self.lastName = try? unboxer.unbox(key: "last_name")
+        self.portfolioUrl = try? unboxer.unbox(key: "portfolio_url")
+        self.bio = try? unboxer.unbox(key: "bio")
+        self.location = try? unboxer.unbox(key: "location")
         self.totalLikes = try unboxer.unbox(key: "total_likes")
         self.totalPhotos = try unboxer.unbox(key: "total_photos")
         self.totalCollections = try unboxer.unbox(key: "total_collections")
-        self.followedByUser = unboxer.unbox(key: "followed_by_user")
-        self.downloads = unboxer.unbox(key: "downloads")
-        self.uploadsRemaining = unboxer.unbox(key: "uploads_remaining")
-        self.instagramUsername = unboxer.unbox(key: "instagram_username")
-        self.email = unboxer.unbox(key: "email")
-        self.links = unboxer.unbox(key: "links")
+        self.followedByUser = try? unboxer.unbox(key: "followed_by_user")
+        self.downloads = try? unboxer.unbox(key: "downloads")
+        self.uploadsRemaining = try? unboxer.unbox(key: "uploads_remaining")
+        self.instagramUsername = try? unboxer.unbox(key: "instagram_username")
+        self.email = try? unboxer.unbox(key: "email")
+        self.links = try? unboxer.unbox(key: "links")
     }
 }
 
@@ -88,7 +88,7 @@ public struct User: Unboxable {
 public extension User {
     
     /// Returns the resource to fetch the authenticated user.
-    public static var me: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
+    static var me: Resource<User> = Resource { (components: URLComponents) -> URLRequest in
         var mutable: URLComponents = components
         mutable.path = "/me"
         return URLRequest(url: mutable.url!)
@@ -106,7 +106,7 @@ public extension User {
     ///   - bio: user new biography.
     ///   - instagramUsername: user new instagram username.
     /// - Returns: resource for updating the user.
-    public static func updateMe(username: String? = nil,
+    static func updateMe(username: String? = nil,
                                 firstName: String? = nil,
                                 lastName: String? = nil,
                                 email: String? = nil,
@@ -139,7 +139,7 @@ public extension User {
     ///   - username: user username.
     ///   - size: profile photo size.
     /// - Returns: resource for fetching an user.
-    public static func get(username: String,
+    static func get(username: String,
                            size: CGSize? = nil) -> Resource<User> {
         var queryItems: [URLQueryItem] = []
         if let size = size {
@@ -160,7 +160,7 @@ public extension User {
     ///
     /// - Parameter username: user username.
     /// - Returns: resource for fetching the portfolio url.
-    public static func portfolio(username: String) -> Resource<String> {
+    static func portfolio(username: String) -> Resource<String> {
         return Resource(request: { (components) -> URLRequest in
             var mutable: URLComponents = components
             mutable.path = "/users/\(username)/portfolio"
@@ -180,7 +180,7 @@ public extension User {
     ///   - perPage: number of items per page.
     ///   - orderBy: order by value.
     /// - Returns: resource for fetching the user's photos.
-    public static func photos(username: String,
+    static func photos(username: String,
                               page: Int = 1,
                               perPage: Int = 10,
                               orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -206,7 +206,7 @@ public extension User {
     ///   - perPage: number of items per page.
     ///   - orderBy: order by value.
     /// - Returns: resource for fetching the liked photos.
-    public static func likes(username: String,
+    static func likes(username: String,
                              page: Int = 1,
                              perPage: Int = 10,
                              orderBy: Order = .latest) -> Resource<[Photo]> {
@@ -232,7 +232,7 @@ public extension User {
     ///   - perPage: number of items per page.
     ///   - orderBy: order by value.
     /// - Returns: resource for fetching the collections.
-    public static func collections(username: String,
+    static func collections(username: String,
                                    page: Int = 1,
                                    perPage: Int = 10,
                                    orderBy: Order = .latest) -> Resource<[Collection]> {

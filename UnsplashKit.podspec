@@ -10,13 +10,14 @@ Swift client for unsplash.com API
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Caramba.io' => 'hello@caramba.io' }
   s.source           = { :git => 'https://github.com/carambalabs/UnsplashKit.git', :tag => s.version.to_s }
+  s.swift_version = '5.0'
 
   s.default_subspec = 'Source'
 
   s.subspec "Foundation" do |ss|
     ss.source_files = 'UnsplashKit/Classes/Foundation/**/*.swift'
-    ss.dependency 'Unbox', '~> 2.3'
-    ss.dependency 'Result', '~> 3.1'
+    ss.dependency 'Unbox', '~> 4.0'
+    ss.dependency 'Result', '~> 5.0'
     ss.dependency 'HTTPStatusCodes', '~> 3.1'
     ss.frameworks = ["CoreLocation"]
   end
